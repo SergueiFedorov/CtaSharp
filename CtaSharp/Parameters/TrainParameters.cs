@@ -1,6 +1,6 @@
 ﻿namespace CtaSharp
 {
-    public class TrainParameters
+    internal class TrainParameters
     {
         public int RunNumber { get; set; }
     }

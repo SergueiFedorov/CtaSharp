@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CtaSharp
+namespace CtaSharp.Models
 {
     public class Train
     {
