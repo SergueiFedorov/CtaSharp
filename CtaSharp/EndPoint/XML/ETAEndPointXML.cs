@@ -1,0 +1,44 @@
+﻿using CtaSharp.EndPoint.XML;
+using CtaSharp.EndPoint.XML.Converters;
+using CtaSharp.Models;
+using CtaSharp.Parameters;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CtaSharp.EndPoint.Base.XML
+{
+    class ETAEndPointXML : BaseEndPointXML, IEndpoint<ETA, ETAParameters>
+    {
+        internal ETAEndPointXML(string APIKey)
+            : base(APIKey, "http://lapi.transitchicago.com/api/1.0/ttfollow.aspx")
+        {
+
+        }
+
+        public IEnumerable<ETA> Get(ETAParameters parameters)
+        {
+            _client.QueryString.Clear();
+            _client.QueryString.Add("key", this.APIKey);
+            _client.QueryString.Add("runnumber", parameters.RunNumber.ToString());
+
+            var data = _client.DownloadString(this.uri);
+
+            IXmlConverter<ETA> converter = new XMLToETAConverter();
+            IEnumerable<ETA> result =  converter.Convert(data, "eta");
+
+            return result;
+        }
+
+        public async Task<IEnumerable<ETA>> GetAsync(ETAParameters parameters)
+        {
+            return await Task.Run(() =>
+            {
+                return this.Get(parameters);
+            });
+        }
+    }
+}
