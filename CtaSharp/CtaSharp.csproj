@@ -51,7 +51,6 @@
     <Compile Include="EndPoint\XML\Converters\XMLToETAConverter.cs" />
     <Compile Include="EndPoint\XML\Converters\XMLToTrainConverter.cs" />
     <Compile Include="EndPoint\XML\RouteEndPointXML.cs" />
-    <Compile Include="Models\ArrivalPredication.cs" />
     <Compile Include="Models\ETA.cs" />
     <Compile Include="Models\Route.cs" />
     <Compile Include="Models\Train.cs" />
