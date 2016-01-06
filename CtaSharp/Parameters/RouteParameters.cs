@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace CtaSharp.Parameters
 {
-    public enum TrainRoute { Red }
+    public enum EnumTrainRoute { Red }
     public class RouteParameters
     {
-        public TrainRoute Route { get; set; }
+        public EnumTrainRoute Route { get; set; }
     }
 }

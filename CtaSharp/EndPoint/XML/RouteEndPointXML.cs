@@ -22,29 +22,32 @@ namespace CtaSharp
 
         }
 
-        public IEnumerable<Route> Get(RouteParameters parameters)
+        private string GetTrainRouteString(EnumTrainRoute route)
         {
-            base._client.QueryString.Clear();
-            base._client.QueryString.Add("key", this.APIKey);
-            string routeName = "";
-
-            switch(parameters.Route)
+            switch (route)
             {
-                case TrainRoute.Red:
+                case EnumTrainRoute.Red:
                     {
-                        routeName = "Red";
-                        break;
+                        return "Red";
                     }
                 default:
                     {
                         throw new Exception("Cannot determine train route");
                     }
             }
+        }
 
-            base._client.QueryString.Add("rt", routeName);
+        //Todo: Clean up
+        public IEnumerable<Route> Get(RouteParameters parameters)
+        {
+            base.ClearParameters();
 
-            var data = base._client.DownloadString(uri);
+            string routeName = GetTrainRouteString(parameters.Route);
+            AddParameter("rt", routeName);
 
+            var data = base.DownloadContent();
+
+            //Todo: dependecy injection
             IXmlConverter<Train> trainConverter = new XMLToTrainConverter();
             var trains = trainConverter.Convert(data, "train");
 

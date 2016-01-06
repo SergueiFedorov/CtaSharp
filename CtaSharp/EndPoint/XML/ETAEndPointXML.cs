@@ -21,12 +21,12 @@ namespace CtaSharp.EndPoint.Base.XML
 
         public IEnumerable<ETA> Get(ETAParameters parameters)
         {
-            _client.QueryString.Clear();
-            _client.QueryString.Add("key", this.APIKey);
-            _client.QueryString.Add("runnumber", parameters.RunNumber.ToString());
+            base.ClearParameters();
+            base.AddParameter("runnumber", parameters.RunNumber.ToString());
 
-            var data = _client.DownloadString(this.uri);
+            var data = base.DownloadContent();
 
+            //Todo: dependecy injection
             IXmlConverter<ETA> converter = new XMLToETAConverter();
             IEnumerable<ETA> result =  converter.Convert(data, "eta");
 

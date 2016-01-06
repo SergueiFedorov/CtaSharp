@@ -11,9 +11,9 @@ namespace CtaSharp
     internal class TrainEndpointXML : IEndpoint<Train, TrainParameters>
     {
         IEndpoint<Route, RouteParameters> _routeEndpoint { get; }
-        TrainRoute _route { get; }
+        EnumTrainRoute _route { get; }
 
-        internal TrainEndpointXML(IEndpoint<Route, RouteParameters> routeEndpoint, TrainRoute route)
+        internal TrainEndpointXML(IEndpoint<Route, RouteParameters> routeEndpoint, EnumTrainRoute route)
         {
             _routeEndpoint = routeEndpoint;
         }
