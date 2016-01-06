@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CtaSharp
+namespace CtaSharp.Models
 {
     public class Train
     {

@@ -1,11 +1,8 @@
 ﻿using CtaSharp.EndPoint.Base.XML;
 using CtaSharp.Models;
 using CtaSharp.Parameters;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CtaSharp
 {

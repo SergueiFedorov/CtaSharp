@@ -30,6 +30,34 @@ namespace CtaSharp
                     {
                         return "Red";
                     }
+                case EnumTrainRoute.Blue:
+                    {
+                        return "Blue";
+                    }
+                case EnumTrainRoute.Brown:
+                    {
+                        return "Brn";
+                    }
+                case EnumTrainRoute.Purple:
+                    {
+                        return "P";
+                    }
+                case EnumTrainRoute.Green:
+                    {
+                        return "G";
+                    }
+                case EnumTrainRoute.Orange:
+                    {
+                        return "Org";
+                    }
+                case EnumTrainRoute.Pink:
+                    {
+                        return "Pink";
+                    }
+                case EnumTrainRoute.Yellow:
+                    {
+                        return "Y";
+                    }
                 default:
                     {
                         throw new Exception("Cannot determine train route");

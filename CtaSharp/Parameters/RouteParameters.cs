@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CtaSharp.Parameters
+﻿namespace CtaSharp.Parameters
 {
-    public enum EnumTrainRoute { Red }
+    public enum EnumTrainRoute { Red,
+        Blue,
+        Brown,
+        Purple,
+        Green,
+        Orange,
+        Pink,
+        Yellow
+    }
     public class RouteParameters
     {
         public EnumTrainRoute Route { get; set; }
