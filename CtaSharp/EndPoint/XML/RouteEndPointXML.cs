@@ -10,10 +10,19 @@ namespace CtaSharp
 {
     class LocationEndPointXML : BaseEndPointXML, IEndpoint<Route, RouteParameters>
     {
-        internal LocationEndPointXML(string APIKey)
-            : base(APIKey, "http://lapi.transitchicago.com/api/1.0/ttpositions.aspx")
-        {
+        const string EndpointAddress = "http://lapi.transitchicago.com/api/1.0/ttpositions.aspx";
+        IXmlConverter<Train> _TrainConverter { get; }
 
+        internal LocationEndPointXML(string APIKey)
+            : base(APIKey, EndpointAddress)
+        {
+            _TrainConverter = new XMLToTrainConverter();
+        }
+
+        internal LocationEndPointXML(string APIKey, IXmlConverter<Train> trainConverter)
+             : base(APIKey, EndpointAddress)
+        {
+            _TrainConverter = trainConverter;
         }
 
         private string GetTrainRouteString(EnumTrainRoute route)
@@ -21,45 +30,26 @@ namespace CtaSharp
             switch (route)
             {
                 case EnumTrainRoute.Red:
-                    {
                         return "Red";
-                    }
                 case EnumTrainRoute.Blue:
-                    {
                         return "Blue";
-                    }
                 case EnumTrainRoute.Brown:
-                    {
                         return "Brn";
-                    }
                 case EnumTrainRoute.Purple:
-                    {
                         return "P";
-                    }
                 case EnumTrainRoute.Green:
-                    {
                         return "G";
-                    }
                 case EnumTrainRoute.Orange:
-                    {
                         return "Org";
-                    }
                 case EnumTrainRoute.Pink:
-                    {
                         return "Pink";
-                    }
                 case EnumTrainRoute.Yellow:
-                    {
                         return "Y";
-                    }
                 default:
-                    {
                         throw new Exception("Cannot determine train route");
-                    }
             }
         }
 
-        //Todo: Clean up
         public IEnumerable<Route> Get(RouteParameters parameters)
         {
             base.ClearParameters();
@@ -68,10 +58,7 @@ namespace CtaSharp
             AddParameter("rt", routeName);
 
             var data = base.DownloadContent();
-
-            //Todo: dependecy injection
-            IXmlConverter<Train> trainConverter = new XMLToTrainConverter();
-            var trains = trainConverter.Convert(data, "train");
+            var trains = _TrainConverter.Convert(data, "train");
 
             return new Route[]
             {
