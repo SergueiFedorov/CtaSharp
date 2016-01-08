@@ -1,4 +1,4 @@
-﻿using CtaSharp.EndPoint.Base.XML;
+﻿using CtaSharp.EndPoint;
 using CtaSharp.Models;
 using CtaSharp.Parameters;
 using System.Collections.Generic;
