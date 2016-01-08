@@ -1,5 +1,6 @@
 ﻿using CtaSharp.EndPoint.XML;
 using CtaSharp.EndPoint.XML.Converters;
+using CtaSharp.EndPoint.XML.DataSource;
 using CtaSharp.Models;
 using CtaSharp.Parameters;
 using System.Collections.Generic;
@@ -7,30 +8,28 @@ using System.Threading.Tasks;
 
 namespace CtaSharp.EndPoint.Base.XML
 {
-    class ETAEndPointXML : BaseEndPointXML, IEndpoint<ETA, ETAParameters>
+    internal class ETAEndPointXML : IEndpoint<ETA, ETAParameters>
     {
-        //Todo: allow this to be passed externally
-        const string EndpointAddress = "http://lapi.transitchicago.com/api/1.0/ttfollow.aspx";
         IXmlConverter<ETA> _converter { get; }
+        IDataSource<ETA> _dataSource { get; }
 
-        internal ETAEndPointXML(string APIKey, IXmlConverter<ETA> converter)
-            : base(APIKey, EndpointAddress)
+        internal ETAEndPointXML(string APIKey, IXmlConverter<ETA> converter, IDataSource<ETA> dataSource)
         {
+            _dataSource = dataSource;
             _converter = converter;
         }
 
         internal ETAEndPointXML(string APIKey)
-            : base(APIKey, EndpointAddress)
         {
+            _dataSource = new ETADataSource(APIKey);
             _converter = new XMLToETAConverter();
         }
 
         public IEnumerable<ETA> Get(ETAParameters parameters)
         {
-            base.ClearParameters();
-            base.AddParameter("runnumber", parameters.RunNumber.ToString());
+            _dataSource.AddParameter("runnumber", parameters.RunNumber.ToString());
 
-            var data = base.DownloadContent();
+            var data = _dataSource.Execute();
             IEnumerable<ETA> result = _converter.Convert(data, "eta");
 
             return result;

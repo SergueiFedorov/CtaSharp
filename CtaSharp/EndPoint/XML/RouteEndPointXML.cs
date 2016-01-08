@@ -5,22 +5,22 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using CtaSharp.EndPoint.XML.Converters;
 using CtaSharp.EndPoint.XML;
+using CtaSharp.EndPoint.XML.DataSource;
 
 namespace CtaSharp
 {
-    class LocationEndPointXML : BaseEndPointXML, IEndpoint<Route, RouteParameters>
+    internal class LocationEndPointXML : IEndpoint<Route, RouteParameters>
     {
-        const string EndpointAddress = "http://lapi.transitchicago.com/api/1.0/ttpositions.aspx";
         IXmlConverter<Train> _TrainConverter { get; }
+        IDataSource<Train> _TrainDataSource { get; set; }
 
         internal LocationEndPointXML(string APIKey)
-            : base(APIKey, EndpointAddress)
         {
+            _TrainDataSource = new TrainDataSource(APIKey);
             _TrainConverter = new XMLToTrainConverter();
         }
 
         internal LocationEndPointXML(string APIKey, IXmlConverter<Train> trainConverter)
-             : base(APIKey, EndpointAddress)
         {
             _TrainConverter = trainConverter;
         }
@@ -52,12 +52,10 @@ namespace CtaSharp
 
         public IEnumerable<Route> Get(RouteParameters parameters)
         {
-            base.ClearParameters();
-
             string routeName = GetTrainRouteString(parameters.Route);
-            AddParameter("rt", routeName);
+            _TrainDataSource.AddParameter("rt", routeName);
 
-            var data = base.DownloadContent();
+            var data = _TrainDataSource.Execute();
             var trains = _TrainConverter.Convert(data, "train");
 
             return new Route[]
