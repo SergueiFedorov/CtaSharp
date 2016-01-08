@@ -2,7 +2,10 @@
 using CtaSharp.Tools.XML;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Xml.Linq;
+
+[assembly: InternalsVisibleTo("CtaSharp.UnitTests")]
 
 namespace CtaSharp.EndPoint.Converters
 {

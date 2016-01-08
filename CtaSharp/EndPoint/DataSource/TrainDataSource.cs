@@ -1,9 +1,12 @@
 ﻿using System;
 using CtaSharp.Models;
+using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("CtaSharp.UnitTests")]
 
 namespace CtaSharp.EndPoint.DataSource
 {
-    class TrainDataSource : DataSourceBase, IDataSource<Train>
+    internal class TrainDataSource : DataSourceBase, IDataSource<Train>
     {
         const string EndpointAddress = "http://lapi.transitchicago.com/api/1.0/ttpositions.aspx";
 

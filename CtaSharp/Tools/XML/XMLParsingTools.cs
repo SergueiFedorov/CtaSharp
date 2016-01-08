@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Xml.Linq;
+
+[assembly: InternalsVisibleTo("CtaSharp.UnitTests")]
 
 namespace CtaSharp.Tools.XML
 {

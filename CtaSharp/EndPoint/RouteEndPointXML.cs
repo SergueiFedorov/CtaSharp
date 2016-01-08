@@ -4,8 +4,10 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using CtaSharp.EndPoint.Converters;
-using CtaSharp.EndPoint;
 using CtaSharp.EndPoint.DataSource;
+using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("CtaSharp.UnitTests")]
 
 namespace CtaSharp.EndPoint
 {

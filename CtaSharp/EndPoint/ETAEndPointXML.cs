@@ -1,10 +1,12 @@
-﻿using CtaSharp.EndPoint;
-using CtaSharp.EndPoint.Converters;
+﻿using CtaSharp.EndPoint.Converters;
 using CtaSharp.EndPoint.DataSource;
 using CtaSharp.Models;
 using CtaSharp.Parameters;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+
+[assembly: InternalsVisibleTo("CtaSharp.UnitTests")]
 
 namespace CtaSharp.EndPoint
 {
