@@ -1,7 +1,7 @@
 ﻿using System;
 using CtaSharp.Models;
 
-namespace CtaSharp.EndPoint.XML.DataSource
+namespace CtaSharp.EndPoint.DataSource
 {
     class TrainDataSource : DataSourceBase, IDataSource<Train>
     {

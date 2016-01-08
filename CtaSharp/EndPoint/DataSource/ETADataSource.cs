@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CtaSharp.EndPoint.XML.DataSource
+namespace CtaSharp.EndPoint.DataSource
 {
     internal class ETADataSource : DataSourceBase, IDataSource<ETA>
     {

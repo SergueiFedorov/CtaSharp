@@ -1,12 +1,12 @@
-﻿using CtaSharp.EndPoint.XML;
-using CtaSharp.EndPoint.XML.Converters;
-using CtaSharp.EndPoint.XML.DataSource;
+﻿using CtaSharp.EndPoint;
+using CtaSharp.EndPoint.Converters;
+using CtaSharp.EndPoint.DataSource;
 using CtaSharp.Models;
 using CtaSharp.Parameters;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace CtaSharp.EndPoint.Base.XML
+namespace CtaSharp.EndPoint
 {
     internal class ETAEndPointXML : IEndpoint<ETA, ETAParameters>
     {

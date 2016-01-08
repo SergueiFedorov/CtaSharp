@@ -3,11 +3,11 @@ using CtaSharp.Parameters;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using CtaSharp.EndPoint.XML.Converters;
-using CtaSharp.EndPoint.XML;
-using CtaSharp.EndPoint.XML.DataSource;
+using CtaSharp.EndPoint.Converters;
+using CtaSharp.EndPoint;
+using CtaSharp.EndPoint.DataSource;
 
-namespace CtaSharp
+namespace CtaSharp.EndPoint
 {
     internal class LocationEndPointXML : IEndpoint<Route, RouteParameters>
     {

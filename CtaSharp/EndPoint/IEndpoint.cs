@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace CtaSharp
+namespace CtaSharp.EndPoint
 {
     internal interface IEndpoint<Model, Parameters>
     {

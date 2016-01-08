@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CtaSharp.EndPoint.XML.Converters
+namespace CtaSharp.EndPoint.Converters
 {
     internal interface IXmlConverter<T>
     {

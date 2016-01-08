@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace CtaSharp.EndPoint.XML.Converters
+namespace CtaSharp.EndPoint.Converters
 {
     internal class XMLToETAConverter : IXmlConverter<ETA>
     {

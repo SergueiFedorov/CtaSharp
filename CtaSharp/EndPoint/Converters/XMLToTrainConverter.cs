@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
 
-namespace CtaSharp.EndPoint.XML.Converters
+namespace CtaSharp.EndPoint.Converters
 {
     internal class XMLToTrainConverter : IXmlConverter<Train>
     {
