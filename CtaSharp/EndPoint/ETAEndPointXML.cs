@@ -5,8 +5,10 @@ using CtaSharp.Parameters;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using System;
 
 [assembly: InternalsVisibleTo("CtaSharp.UnitTests")]
+[assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]
 
 namespace CtaSharp.EndPoint
 {
@@ -17,6 +19,10 @@ namespace CtaSharp.EndPoint
 
         internal ETAEndPointXML(string APIKey, IXmlConverter<ETA> converter, IDataSource<ETA> dataSource)
         {
+			if (converter == null || dataSource == null || string.IsNullOrEmpty(APIKey)) {
+				throw new ArgumentNullException ();
+			}
+
             _dataSource = dataSource;
             _converter = converter;
         }
