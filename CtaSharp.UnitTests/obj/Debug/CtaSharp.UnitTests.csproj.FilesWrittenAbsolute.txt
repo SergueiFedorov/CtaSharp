@@ -1,9 +1,0 @@
-/Users/sergueifedorov/CtaSharp/CtaSharp.UnitTests/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
-/Users/sergueifedorov/CtaSharp/CtaSharp.UnitTests/bin/Debug/CtaSharp.UnitTests.dll.mdb
-/Users/sergueifedorov/CtaSharp/CtaSharp.UnitTests/bin/Debug/CtaSharp.UnitTests.dll
-/Users/sergueifedorov/CtaSharp/CtaSharp.UnitTests/obj/Debug/CtaSharp.UnitTests.dll
-/Users/sergueifedorov/CtaSharp/CtaSharp.UnitTests/obj/Debug/CtaSharp.UnitTests.dll.mdb
-/Users/sergueifedorov/CtaSharp/CtaSharp.UnitTests/bin/Debug/nunit.framework.dll
-/Users/sergueifedorov/CtaSharp/CtaSharp.UnitTests/bin/Debug/Moq.dll
-/Users/sergueifedorov/CtaSharp/CtaSharp.UnitTests/bin/Debug/CtaSharp.dll
-/Users/sergueifedorov/CtaSharp/CtaSharp.UnitTests/bin/Debug/CtaSharp.dll.mdb
