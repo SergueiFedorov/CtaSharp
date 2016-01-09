@@ -1,6 +1,0 @@
-/Users/sergueifedorov/CtaSharp/CtaSharp/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
-/Users/sergueifedorov/CtaSharp/CtaSharp/bin/Debug/CtaSharp.dll.config
-/Users/sergueifedorov/CtaSharp/CtaSharp/bin/Debug/CtaSharp.dll.mdb
-/Users/sergueifedorov/CtaSharp/CtaSharp/bin/Debug/CtaSharp.dll
-/Users/sergueifedorov/CtaSharp/CtaSharp/obj/Debug/CtaSharp.dll
-/Users/sergueifedorov/CtaSharp/CtaSharp/obj/Debug/CtaSharp.dll.mdb
