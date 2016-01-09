@@ -18,12 +18,17 @@ namespace CtaSharp.EndPoint
 
         internal LocationEndPointXML(string APIKey)
         {
+			
             _TrainDataSource = new TrainDataSource(APIKey);
             _TrainConverter = new XMLToTrainConverter();
         }
 
         internal LocationEndPointXML(string APIKey, IXmlConverter<Train> trainConverter)
         {
+			if (trainConverter == null || string.IsNullOrEmpty(APIKey)) {
+				throw new ArgumentNullException ();
+			}
+
             _TrainConverter = trainConverter;
         }
 
