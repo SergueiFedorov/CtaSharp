@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Xml.Linq;
+using System;
 
 [assembly: InternalsVisibleTo("CtaSharp.UnitTests")]
 
@@ -13,6 +14,11 @@ namespace CtaSharp.EndPoint.Converters
     {
         public IEnumerable<ETA> Convert(string XML, string parentNodeName)
         {
+			if (string.IsNullOrEmpty (XML) || string.IsNullOrEmpty (parentNodeName)) 
+			{
+				throw new ArgumentNullException ();
+			}
+
             var parsedXML = XDocument.Parse(XML);
             var etas = parsedXML.Descendants().Where(x => x.Name == parentNodeName);
 
@@ -21,22 +27,22 @@ namespace CtaSharp.EndPoint.Converters
             {
                 parsedETA.Add(new ETA()
                 {
-                    PredicatedArrival =      XMLParsingTools.PraseDateTime(XMLParsingTools.ExtractValue(eta, "arrT")),
-                    DestinationName =    XMLParsingTools.ExtractValue(eta, "destNm"),
-                    DestinationStationID =    XMLParsingTools.ParseUShort(XMLParsingTools.ExtractValue(eta, "destSt")),
-                    Flags =     XMLParsingTools.ExtractValue(eta, "flags"),
-                    IsApproaching =     XMLParsingTools.PraseBool(XMLParsingTools.ExtractValue(eta, "isApp")),
-                    IsDelayed =     XMLParsingTools.PraseBool(XMLParsingTools.ExtractValue(eta, "isDly")),
-                    IsFaultDetected =     XMLParsingTools.PraseBool(XMLParsingTools.ExtractValue(eta, "isFlt")),
-                    IsLivePrediction =     XMLParsingTools.PraseBool(XMLParsingTools.ExtractValue(eta, "isSch")),
-                    PredicationGeneratedTime =      XMLParsingTools.PraseDateTime(XMLParsingTools.ExtractValue(eta, "prdt")),
-                    RunNumber =        XMLParsingTools.ParseInt(XMLParsingTools.ExtractValue(eta, "rn")),
-                    RouteName =        XMLParsingTools.ExtractValue(eta, "rt"),
-                    StationID =     XMLParsingTools.ParseUShort(XMLParsingTools.ExtractValue(eta, "staId")),
-                    StationName =     XMLParsingTools.ExtractValue(eta, "staNm"),
-                    StationDescription =     XMLParsingTools.ExtractValue(eta, "stpDe"),
-                    StopID =     XMLParsingTools.ParseInt(XMLParsingTools.ExtractValue(eta, "stpId")),
-                    RouteDirectionCode =      XMLParsingTools.ParseInt(XMLParsingTools.ExtractValue(eta, "trDr")),
+                    PredicatedArrival =      	XMLParsingTools.PraseDateTime(XMLParsingTools.ExtractValue(eta, "arrT")),
+                    DestinationName =    		XMLParsingTools.ExtractValue(eta, "destNm"),
+                    DestinationStationID =    	XMLParsingTools.ParseUShort(XMLParsingTools.ExtractValue(eta, "destSt")),
+                    Flags =     				XMLParsingTools.ExtractValue(eta, "flags"),
+                    IsApproaching =     		XMLParsingTools.PraseBool(XMLParsingTools.ExtractValue(eta, "isApp")),
+                    IsDelayed =     			XMLParsingTools.PraseBool(XMLParsingTools.ExtractValue(eta, "isDly")),
+                    IsFaultDetected =     		XMLParsingTools.PraseBool(XMLParsingTools.ExtractValue(eta, "isFlt")),
+                    IsLivePrediction =     		XMLParsingTools.PraseBool(XMLParsingTools.ExtractValue(eta, "isSch")),
+            		PredicationGeneratedTime = 	XMLParsingTools.PraseDateTime(XMLParsingTools.ExtractValue(eta, "prdt")),
+                    RunNumber =        			XMLParsingTools.ParseInt(XMLParsingTools.ExtractValue(eta, "rn")),
+                    RouteName =        			XMLParsingTools.ExtractValue(eta, "rt"),
+                    StationID =     			XMLParsingTools.ParseUShort(XMLParsingTools.ExtractValue(eta, "staId")),
+                    StationName =     			XMLParsingTools.ExtractValue(eta, "staNm"),
+                	StationDescription =     	XMLParsingTools.ExtractValue(eta, "stpDe"),
+                    StopID =     				XMLParsingTools.ParseInt(XMLParsingTools.ExtractValue(eta, "stpId")),
+                    RouteDirectionCode =      	XMLParsingTools.ParseInt(XMLParsingTools.ExtractValue(eta, "trDr")),
                 });
 
             }
