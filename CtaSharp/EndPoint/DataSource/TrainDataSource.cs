@@ -6,11 +6,11 @@ using System.Runtime.CompilerServices;
 
 namespace CtaSharp.EndPoint.DataSource
 {
-    internal class TrainDataSource : DataSourceBase, IDataSource<Train>
+    internal class RouteDataSource : DataSourceBase, IDataSource
     {
         const string EndpointAddress = "http://lapi.transitchicago.com/api/1.0/ttpositions.aspx";
 
-        public TrainDataSource(string APIKey)
+		public RouteDataSource(string APIKey)
             : base(EndpointAddress)
         {
 

@@ -5,7 +5,7 @@
 
 namespace CtaSharp.EndPoint.DataSource
 {
-    internal interface IDataSource<T>
+    internal interface IDataSource
     {
         void AddParameter(string name, string value);
         string Execute();

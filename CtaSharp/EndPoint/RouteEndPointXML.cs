@@ -14,12 +14,12 @@ namespace CtaSharp.EndPoint
     internal class LocationEndPointXML : IEndpoint<Route, RouteParameters>
     {
         IXmlConverter<Train> _TrainConverter { get; }
-        IDataSource<Train> _TrainDataSource { get; set; }
+        IDataSource _RouteDataSource { get; set; }
 
         internal LocationEndPointXML(string APIKey)
         {
 			
-            _TrainDataSource = new TrainDataSource(APIKey);
+			_RouteDataSource = new RouteDataSource(APIKey);
             _TrainConverter = new XMLToTrainConverter();
         }
 
@@ -60,9 +60,9 @@ namespace CtaSharp.EndPoint
         public IEnumerable<Route> Get(RouteParameters parameters)
         {
             string routeName = GetTrainRouteString(parameters.Route);
-            _TrainDataSource.AddParameter("rt", routeName);
+			_RouteDataSource.AddParameter("rt", routeName);
 
-            var data = _TrainDataSource.Execute();
+			var data = _RouteDataSource.Execute();
             var trains = _TrainConverter.Convert(data, "train");
 
             return new Route[]

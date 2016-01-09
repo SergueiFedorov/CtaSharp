@@ -36,9 +36,9 @@ namespace CtaSharp.UnitTests
 </ctatt>";
 
 
-		private IDataSource<ETA> MockETADataSource(string data)
+		private IDataSource MockETADataSource(string data)
 		{
-			var dataSourceMock = new Mock<IDataSource<ETA>> ();
+			var dataSourceMock = new Mock<IDataSource> ();
 			dataSourceMock.Setup(dataSource => dataSource.Execute())
 				.Returns(() => XMLData);
 
@@ -49,7 +49,7 @@ namespace CtaSharp.UnitTests
 		[ExpectedException(typeof(ArgumentNullException))]
 		public void InjectConverterAndDataSource_CheckNullArguementNoDataSource()
 		{
-			var dataSourceMock = new Mock<IDataSource<ETA>> ();
+			var dataSourceMock = new Mock<IDataSource> ();
 			new ETAEndPointXML ("", null, dataSourceMock.Object);
 		}
 

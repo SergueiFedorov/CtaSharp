@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 
 namespace CtaSharp.EndPoint.DataSource
 {
-    internal class ETADataSource : DataSourceBase, IDataSource<ETA>
+    internal class ETADataSource : DataSourceBase, IDataSource
     {
         const string EndpointAddress = "http://lapi.transitchicago.com/api/1.0/ttfollow.aspx";
 
