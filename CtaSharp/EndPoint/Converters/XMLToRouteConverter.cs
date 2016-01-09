@@ -10,9 +10,9 @@ using System;
 
 namespace CtaSharp.EndPoint.Converters
 {
-    internal class XMLToTrainConverter : IXmlConverter<Train>
+	internal class XMLToRouteConverter : IXmlConverter<Route>
     {
-        public IEnumerable<Train> Convert(string XML, string parentNodeName)
+        public IEnumerable<Route> Convert(string XML, string parentNodeName)
         {
 			if (string.IsNullOrEmpty (XML) || string.IsNullOrEmpty (parentNodeName)) {
 				throw new ArgumentNullException ();
@@ -20,6 +20,8 @@ namespace CtaSharp.EndPoint.Converters
 
             var parsedXML = XDocument.Parse(XML);
             var trains = parsedXML.Descendants().Where(x => x.Name == parentNodeName);
+
+			Route route = new Route ();
 
             List<Train> parsedTrains = new List<Train>();
             foreach (XElement train in trains)
@@ -45,7 +47,9 @@ namespace CtaSharp.EndPoint.Converters
 
             }
 
-            return parsedTrains;
+			route.Trains = parsedTrains;
+
+			return new Route[] { route };
         }
     }
 }

@@ -39,7 +39,7 @@ namespace CtaSharp.UnitTests
 		[ExpectedException(typeof(ArgumentNullException))]
 		public void NullXmlDataString()
 		{
-			IXmlConverter<Train> converter = new XMLToTrainConverter ();
+			IXmlConverter<Route> converter = new XMLToRouteConverter ();
 			converter.Convert (null, "parentNode");
 		}
 
@@ -47,31 +47,36 @@ namespace CtaSharp.UnitTests
 		[ExpectedException(typeof(ArgumentNullException))]
 		public void NullParentNodeString()
 		{
-			IXmlConverter<Train> converter = new XMLToTrainConverter ();
+			IXmlConverter<Route> converter = new XMLToRouteConverter ();
 			converter.Convert (XMLData, null);
 		}
 
 		[Test]
 		public void BasicConversion()
 		{
-			IXmlConverter<Train> converter = new XMLToTrainConverter ();
+			IXmlConverter<Route> converter = new XMLToRouteConverter ();
 			var result = converter.Convert (XMLData, "route").First();
 
-			Assert.AreEqual (804, result.RunNumber);
-			Assert.AreEqual (30173, result.DestinationStopNumber);
-			Assert.AreEqual ("Howard", result.DestinationName);
-			Assert.AreEqual (1, result.TrainDirection);
-			Assert.AreEqual (41400, result.NextStationID);
-			Assert.AreEqual (30269, result.NextStopID);
-			Assert.AreEqual ("Roosevelt", result.NextStationName);
-			Assert.AreEqual (new DateTime(2013,06,10,14,58,48), result.PredicationGeneratedTime);
-			Assert.AreEqual (new DateTime(2013,06,10,14,59,48), result.PredicatedArrival);
-			Assert.AreEqual (true, result.IsApproaching);
-			Assert.AreEqual (false, result.IsDelayed);
-			Assert.AreEqual ("", result.Flags);
-			Assert.AreEqual (41.86579m, result.TrainLatitude);
-			Assert.AreEqual (-87.62736m, result.TrainLongitude);
-			Assert.AreEqual (358, result.HeadingDegrees);
+			Assert.IsTrue (result.Trains.Any ());
+			Assert.AreEqual (EnumTrainRoute.Red, result.TrainRoute);
+
+			var train = result.Trains.First ();
+
+			Assert.AreEqual (804, train.RunNumber);
+			Assert.AreEqual (30173, train.DestinationStopNumber);
+			Assert.AreEqual ("Howard", train.DestinationName);
+			Assert.AreEqual (1, train.TrainDirection);
+			Assert.AreEqual (41400, train.NextStationID);
+			Assert.AreEqual (30269, train.NextStopID);
+			Assert.AreEqual ("Roosevelt", train.NextStationName);
+			Assert.AreEqual (new DateTime(2013,06,10,14,58,48), train.PredicationGeneratedTime);
+			Assert.AreEqual (new DateTime(2013,06,10,14,59,48), train.PredicatedArrival);
+			Assert.AreEqual (true, train.IsApproaching);
+			Assert.AreEqual (false, train.IsDelayed);
+			Assert.AreEqual ("", train.Flags);
+			Assert.AreEqual (41.86579m, train.TrainLatitude);
+			Assert.AreEqual (-87.62736m, train.TrainLongitude);
+			Assert.AreEqual (358, train.HeadingDegrees);
 		}
 	}
 }

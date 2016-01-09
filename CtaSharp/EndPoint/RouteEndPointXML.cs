@@ -13,23 +13,23 @@ namespace CtaSharp.EndPoint
 {
     internal class LocationEndPointXML : IEndpoint<Route, RouteParameters>
     {
-        IXmlConverter<Train> _TrainConverter { get; }
+        IXmlConverter<Route> _RouteConverter { get; }
         IDataSource _RouteDataSource { get; set; }
 
         internal LocationEndPointXML(string APIKey)
         {
 			
 			_RouteDataSource = new RouteDataSource(APIKey);
-            _TrainConverter = new XMLToTrainConverter();
+			_RouteConverter = new XMLToRouteConverter();
         }
 
-        internal LocationEndPointXML(string APIKey, IXmlConverter<Train> trainConverter)
+		internal LocationEndPointXML(string APIKey, IXmlConverter<Route> routeConverter)
         {
-			if (trainConverter == null || string.IsNullOrEmpty(APIKey)) {
+			if (routeConverter == null || string.IsNullOrEmpty(APIKey)) {
 				throw new ArgumentNullException ();
 			}
 
-            _TrainConverter = trainConverter;
+			_RouteConverter = routeConverter;
         }
 
         private string GetTrainRouteString(EnumTrainRoute route)
@@ -63,12 +63,9 @@ namespace CtaSharp.EndPoint
 			_RouteDataSource.AddParameter("rt", routeName);
 
 			var data = _RouteDataSource.Execute();
-            var trains = _TrainConverter.Convert(data, "train");
+			var route = _RouteConverter.Convert(data, "ctatt");
 
-            return new Route[]
-            {
-                new Route() { Trains = trains }
-            };
+			return route;
         }
 
         public async Task<IEnumerable<Route>> GetAsync(RouteParameters parameters)
