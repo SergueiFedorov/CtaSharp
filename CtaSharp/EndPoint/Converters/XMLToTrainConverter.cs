@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Xml.Linq;
+using System;
 
 [assembly: InternalsVisibleTo("CtaSharp.UnitTests")]
 
@@ -13,6 +14,10 @@ namespace CtaSharp.EndPoint.Converters
     {
         public IEnumerable<Train> Convert(string XML, string parentNodeName)
         {
+			if (string.IsNullOrEmpty (XML) || string.IsNullOrEmpty (parentNodeName)) {
+				throw new ArgumentNullException ();
+			}
+
             var parsedXML = XDocument.Parse(XML);
             var trains = parsedXML.Descendants().Where(x => x.Name == parentNodeName);
 

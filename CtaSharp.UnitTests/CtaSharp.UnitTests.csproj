@@ -39,6 +39,7 @@
   <ItemGroup>
     <Compile Include="ETAEndpointXML_Tests.cs" />
     <Compile Include="XMLToETAConverter_Tests.cs" />
+    <Compile Include="XMLToTrainConverter_Tests.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
