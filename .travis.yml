@@ -1,2 +1,8 @@
 language: csharp
 solution: CtaSharp.sln
+install:
+  - nuget restore CtaSharp.sln
+  - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
+script:
+  - xbuild /p:Configuration=Release CtaSharp.sln
+  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./CtaSharp.UnitTests/bin/Release/CtaSharp.UnitTests.dll
