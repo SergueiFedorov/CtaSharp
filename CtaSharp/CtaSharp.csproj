@@ -64,6 +64,9 @@
     <Compile Include="EndPoint\Converters\XMLToRouteConverter.cs" />
     <Compile Include="Tools\RouteHelper.cs" />
     <Compile Include="Enums\EnumTrainRoute.cs" />
+    <Compile Include="EndPoint\DataSource\ArrivalsDataSource.cs" />
+    <Compile Include="EndPoint\ArrivalsEndpointXML.cs" />
+    <Compile Include="Parameters\ArrivalsParameters.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

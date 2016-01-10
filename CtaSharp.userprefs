@@ -1,4 +1,4 @@
-﻿<Properties>
+﻿<Properties RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="CtaSharp/EndPoint/IEndpoint.cs">
     <Files>

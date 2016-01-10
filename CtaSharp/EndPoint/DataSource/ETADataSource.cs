@@ -9,12 +9,10 @@ namespace CtaSharp.EndPoint.DataSource
     {
         const string EndpointAddress = "http://lapi.transitchicago.com/api/1.0/ttfollow.aspx";
 
-        string _APIKey { get; }
-
-        public ETADataSource(string APIKey)
+        public ETADataSource()
             : base(EndpointAddress)
         {
-            _APIKey = APIKey;
+			
         }
 
         public string Execute()

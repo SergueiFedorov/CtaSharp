@@ -32,7 +32,7 @@ namespace CtaSharp.EndPoint
 
         internal ETAEndPointXML(string APIKey)
         {
-            _dataSource = new ETADataSource(APIKey);
+            _dataSource = new ETADataSource();
             _converter = new XMLToETAConverter();
 			_APIKey = APIKey;
         }
