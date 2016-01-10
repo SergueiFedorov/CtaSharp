@@ -12,7 +12,7 @@ Route route = trainTracker.GetRoute(EnumTrainRoute.Red);
 
 Get ETA:
 
-Prives estimated time of arrival for upcoming stations based on the run number. This information is not always available.
+Provides estimated time of arrival for upcoming stations based on the run number. This information is not always available.
 
 ```
 CtaTrainTracker trainTracker = new CtaTrainTracker("API_KEY");
