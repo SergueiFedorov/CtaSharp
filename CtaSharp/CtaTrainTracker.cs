@@ -17,7 +17,7 @@ namespace CtaSharp
 
         public Route GetRoute(EnumTrainRoute route)
         {
-            IEndpoint<Route, RouteParameters> endpoint = new LocationEndPointXML(this._APIKey);
+			IEndpoint<Route, RouteParameters> endpoint = new RouteEndPointXML(this._APIKey);
             RouteParameters parameters = new RouteParameters()
             {
                 Route = route

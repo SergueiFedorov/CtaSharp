@@ -11,24 +11,25 @@ using System.Runtime.CompilerServices;
 
 namespace CtaSharp.EndPoint
 {
-    internal class LocationEndPointXML : IEndpoint<Route, RouteParameters>
+    internal class RouteEndPointXML : IEndpoint<Route, RouteParameters>
     {
         IXmlConverter<Route> _RouteConverter { get; }
         IDataSource _RouteDataSource { get; set; }
 
-        internal LocationEndPointXML(string APIKey)
+		internal RouteEndPointXML(string APIKey)
         {
 			
 			_RouteDataSource = new RouteDataSource(APIKey);
 			_RouteConverter = new XMLToRouteConverter();
         }
 
-		internal LocationEndPointXML(string APIKey, IXmlConverter<Route> routeConverter)
+		internal RouteEndPointXML(string APIKey, IXmlConverter<Route> routeConverter, IDataSource dataSource)
         {
-			if (routeConverter == null || string.IsNullOrEmpty(APIKey)) {
+			if (routeConverter == null || dataSource == null || string.IsNullOrEmpty(APIKey)) {
 				throw new ArgumentNullException ();
 			}
 
+			_RouteDataSource = dataSource;
 			_RouteConverter = routeConverter;
         }
 
