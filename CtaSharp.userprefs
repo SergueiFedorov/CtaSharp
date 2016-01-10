@@ -1,4 +1,4 @@
-﻿<Properties StartupItem="CtaSharp.UnitTests/CtaSharp.UnitTests.csproj">
+﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="CtaSharp/EndPoint/IEndpoint.cs">
     <Files>

@@ -16,6 +16,8 @@ namespace CtaSharp.EndPoint
     {
         IXmlConverter<ETA> _converter { get; }
         IDataSource _dataSource { get; }
+	
+		string _APIKey { get; }
 
         internal ETAEndPointXML(string APIKey, IXmlConverter<ETA> converter, IDataSource dataSource)
         {
@@ -23,6 +25,7 @@ namespace CtaSharp.EndPoint
 				throw new ArgumentNullException ();
 			}
 
+			_APIKey = APIKey;
             _dataSource = dataSource;
             _converter = converter;
         }
@@ -36,6 +39,7 @@ namespace CtaSharp.EndPoint
         public IEnumerable<ETA> Get(ETAParameters parameters)
         {
             _dataSource.AddParameter("runnumber", parameters.RunNumber.ToString());
+			_dataSource.AddParameter ("key", _APIKey);
 
             var data = _dataSource.Execute();
             IEnumerable<ETA> result = _converter.Convert(data, "eta");

@@ -17,10 +17,12 @@ namespace CtaSharp.EndPoint
         IXmlConverter<Route> _RouteConverter { get; }
         IDataSource _RouteDataSource { get; set; }
 
+		string _APIKey { get; }
+
 		internal RouteEndPointXML(string APIKey)
         {
-			
-			_RouteDataSource = new RouteDataSource(APIKey);
+			_APIKey = APIKey;
+			_RouteDataSource = new RouteDataSource ();
 			_RouteConverter = new XMLToRouteConverter();
         }
 
@@ -34,35 +36,11 @@ namespace CtaSharp.EndPoint
 			_RouteConverter = routeConverter;
         }
 
-        private string GetTrainRouteString(EnumTrainRoute route)
-        {
-            switch (route)
-            {
-                case EnumTrainRoute.Red:
-                        return "Red";
-                case EnumTrainRoute.Blue:
-                        return "Blue";
-                case EnumTrainRoute.Brown:
-                        return "Brn";
-                case EnumTrainRoute.Purple:
-                        return "P";
-                case EnumTrainRoute.Green:
-                        return "G";
-                case EnumTrainRoute.Orange:
-                        return "Org";
-                case EnumTrainRoute.Pink:
-                        return "Pink";
-                case EnumTrainRoute.Yellow:
-                        return "Y";
-                default:
-                        throw new Exception("Cannot determine train route");
-            }
-        }
-
         public IEnumerable<Route> Get(RouteParameters parameters)
         {
-            string routeName = GetTrainRouteString(parameters.Route);
+			string routeName = RouteHelper.GetTrainRouteString(parameters.Route);
 			_RouteDataSource.AddParameter("rt", routeName);
+			_RouteDataSource.AddParameter ("key", _APIKey);
 
 			var data = _RouteDataSource.Execute();
 			var route = _RouteConverter.Convert(data, "ctatt");

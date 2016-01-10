@@ -10,16 +10,17 @@ namespace CtaSharp.EndPoint.DataSource
     {
         const string EndpointAddress = "http://lapi.transitchicago.com/api/1.0/ttpositions.aspx";
 
-		public RouteDataSource(string APIKey)
+		public RouteDataSource()
             : base(EndpointAddress)
         {
-
+			
         }
 
         public string Execute()
         {
+			var result = base.DownloadContent();
 			_client.QueryString.Clear();
-			return base.DownloadContent();
+			return result;
         }
     }
 }

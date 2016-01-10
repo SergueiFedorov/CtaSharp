@@ -13,6 +13,7 @@ namespace CtaSharp.EndPoint.Converters
 {
 	internal class XMLToRouteConverter : IXmlConverter<Route>
     {
+		//Todo: Clean this up
         public IEnumerable<Route> Convert(string XML, string parentNodeName)
         {
 			if (string.IsNullOrEmpty (XML) || string.IsNullOrEmpty (parentNodeName)) {
