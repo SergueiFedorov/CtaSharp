@@ -10,7 +10,7 @@ using System.Linq;
 namespace CtaSharp.UnitTests
 {
 	[TestFixture]
-	public class XMLToTrainConverter_Tests
+	public class XMLToRouteConverter_Tests
 	{
 		const string XMLData = 
 @"<ctatt>

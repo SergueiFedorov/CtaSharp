@@ -1,6 +1,9 @@
 ﻿namespace CtaSharp.Parameters
 {
-    public enum EnumTrainRoute { Red,
+    public enum EnumTrainRoute 
+	{
+		NotDetermined,
+		Red,
         Blue,
         Brown,
         Purple,
