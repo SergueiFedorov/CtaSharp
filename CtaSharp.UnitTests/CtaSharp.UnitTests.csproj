@@ -41,6 +41,7 @@
     <Compile Include="XMLToETAConverter_Tests.cs" />
     <Compile Include="RouteEndPointXML_Tests.cs" />
     <Compile Include="XMLToRouteConverter_Tests.cs" />
+    <Compile Include="ArrivalsEndpointXML_Tests.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
