@@ -59,6 +59,22 @@ const string XMLData =
 
 			Assert.AreEqual (1, routes.Count ());
 		}
+
+		[Test]
+		public async void GetAsync()
+		{
+			var dataSource = CreateDataSource ();
+			var converter = new XMLToRouteConverter ();
+			var endpoint = new RouteEndPointXML ("apikey", converter, dataSource);
+
+			var task = endpoint.GetAsync (new RouteParameters () { });
+
+			Assert.NotNull (task);
+
+			var routes = await task; 
+
+			Assert.AreEqual (1, routes.Count ());
+		}
 	}
 }
 

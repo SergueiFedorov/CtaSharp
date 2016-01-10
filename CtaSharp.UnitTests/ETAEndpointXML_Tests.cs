@@ -74,6 +74,23 @@ namespace CtaSharp.UnitTests
 			Assert.AreEqual (123, result.First ().RunNumber);
 		}
 
+		[Test]
+		public async void GetAsync()
+		{
+			var dataSourceMock = MockETADataSource (XMLData);
+			var xmlConverter = new XMLToETAConverter ();
+
+			var endPoint = new ETAEndPointXML ("key", xmlConverter, dataSourceMock);
+			var task = endPoint.GetAsync (new ETAParameters () { RunNumber = 123 });
+
+			Assert.NotNull (task);
+
+			var result = await task;
+
+			Assert.AreEqual (1, result.Count ());
+			Assert.AreEqual (123, result.First ().RunNumber);
+		}
+
 	}
 }
 

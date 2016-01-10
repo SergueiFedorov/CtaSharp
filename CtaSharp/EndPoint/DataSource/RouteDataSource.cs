@@ -16,14 +16,10 @@ namespace CtaSharp.EndPoint.DataSource
 
         }
 
-        public void AddParameter(string name, string value)
-        {
-            _client.QueryString.Add(name, value);
-        }
-
         public string Execute()
         {
-            throw new NotImplementedException();
+			_client.QueryString.Clear();
+			return base.DownloadContent();
         }
     }
 }

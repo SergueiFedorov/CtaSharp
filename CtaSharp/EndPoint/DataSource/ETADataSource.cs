@@ -22,10 +22,5 @@ namespace CtaSharp.EndPoint.DataSource
             _client.QueryString.Clear();
             return base.DownloadContent();
         }
-
-        public void AddParameter(string name, string value)
-        {
-            _client.QueryString.Add(name, value);
-        }
     }
 }

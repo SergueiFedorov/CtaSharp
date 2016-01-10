@@ -25,5 +25,10 @@ namespace CtaSharp.EndPoint.DataSource
         {
             return _client.DownloadString(_Url);
         }
+
+		public void AddParameter(string name, string value)
+		{
+			_client.QueryString.Add(name, value);
+		}
     }
 }
