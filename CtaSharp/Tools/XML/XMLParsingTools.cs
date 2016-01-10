@@ -29,6 +29,12 @@ namespace CtaSharp.Tools.XML
             return parent.Descendants().Single(x => x.Name == name).Value;
         }
 
+		//Todo: Query is a bit too deep nested
+		internal static string ExtractAttribute(XElement element, string attributeName)
+		{
+			return element.Attributes().Single(attrib => attrib.Name == attributeName).Value;
+		}
+
         internal static decimal ParseDecimal(string value)
         {
             return decimal.Parse(value);

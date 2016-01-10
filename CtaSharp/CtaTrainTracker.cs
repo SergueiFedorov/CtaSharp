@@ -3,6 +3,7 @@ using CtaSharp.Models;
 using CtaSharp.Parameters;
 using System.Collections.Generic;
 using System.Linq;
+using CtaSharp.Enums;
 
 namespace CtaSharp
 {

@@ -9,6 +9,7 @@ using CtaSharp.EndPoint.DataSource;
 using CtaSharp;
 using CtaSharp.Models;
 using System.Linq;
+using CtaSharp.Enums;
 
 namespace CtaSharp.UnitTests
 {
@@ -55,7 +56,7 @@ const string XMLData =
 			var converter = new XMLToRouteConverter ();
 			var endpoint = new RouteEndPointXML ("apikey", converter, dataSource);
 
-			var routes = endpoint.Get (new RouteParameters () { });
+			var routes = endpoint.Get (new RouteParameters () { Route = EnumTrainRoute.Red });
 
 			Assert.AreEqual (1, routes.Count ());
 		}
@@ -67,7 +68,7 @@ const string XMLData =
 			var converter = new XMLToRouteConverter ();
 			var endpoint = new RouteEndPointXML ("apikey", converter, dataSource);
 
-			var task = endpoint.GetAsync (new RouteParameters () { });
+			var task = endpoint.GetAsync (new RouteParameters () { Route = EnumTrainRoute.Red });
 
 			Assert.NotNull (task);
 

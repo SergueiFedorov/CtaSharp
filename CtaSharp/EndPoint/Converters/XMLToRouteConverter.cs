@@ -1,5 +1,6 @@
 ﻿using CtaSharp.Models;
 using CtaSharp.Tools.XML;
+using CtaSharp.Tools;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -19,12 +20,17 @@ namespace CtaSharp.EndPoint.Converters
 			}
 
             var parsedXML = XDocument.Parse(XML);
-            var trains = parsedXML.Descendants().Where(x => x.Name == parentNodeName);
+
+			var routeXelement = parsedXML.Descendants ().Where (x => x.Name == "route").Single();
+			var trainsXelements = routeXelement.Descendants().Where(x => x.Name == "train");
 
 			Route route = new Route ();
+			var lineName = XMLParsingTools.ExtractAttribute (routeXelement, "name"); 
+
+			route.TrainRoute = RouteHelper.GetTrainRouteEnum (lineName);
 
             List<Train> parsedTrains = new List<Train>();
-            foreach (XElement train in trains)
+			foreach (XElement train in trainsXelements)
             {
                 parsedTrains.Add(new Train()
                 {

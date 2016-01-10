@@ -6,6 +6,7 @@ using CtaSharp.EndPoint.DataSource;
 using CtaSharp.Parameters;
 using CtaSharp.Models;
 using System.Linq;
+using CtaSharp.Enums;
 
 namespace CtaSharp.UnitTests
 {

@@ -63,6 +63,8 @@
     <Compile Include="Tools\XML\XMLParsingTools.cs" />
     <Compile Include="EndPoint\DataSource\RouteDataSource.cs" />
     <Compile Include="EndPoint\Converters\XMLToRouteConverter.cs" />
+    <Compile Include="Tools\RouteHelper.cs" />
+    <Compile Include="Enums\EnumTrainRoute.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -75,4 +77,7 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <Folder Include="Enums\" />
+  </ItemGroup>
 </Project>

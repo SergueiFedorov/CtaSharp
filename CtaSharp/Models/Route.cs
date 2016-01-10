@@ -2,7 +2,7 @@
 using CtaSharp;
 using CtaSharp.Parameters;
 using CtaSharp.EndPoint;
-
+using CtaSharp.Enums;
 
 
 namespace CtaSharp.Models
