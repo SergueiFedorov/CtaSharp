@@ -34,6 +34,7 @@ namespace CtaSharp.EndPoint
         {
             _dataSource = new ETADataSource(APIKey);
             _converter = new XMLToETAConverter();
+			_APIKey = APIKey;
         }
 
         public IEnumerable<ETA> Get(ETAParameters parameters)
