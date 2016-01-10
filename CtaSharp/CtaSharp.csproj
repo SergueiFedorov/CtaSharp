@@ -55,7 +55,6 @@
     <Compile Include="Models\Train.cs" />
     <Compile Include="Parameters\ETAParameters.cs" />
     <Compile Include="Parameters\RouteParameters.cs" />
-    <Compile Include="Parameters\TrainParameters.cs" />
     <Compile Include="CtaTrainTracker.cs" />
     <Compile Include="EndPoint\IEndpoint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
