@@ -21,7 +21,7 @@ namespace CtaSharp.Tools.XML
 
         internal static bool ParseBool(string value)
         {
-            if (value != "1" || value != "0")
+            if (value != "1" && value != "0")
             {
                 throw new Exception($"Value passed to ParseBool is not 1 or 0. Value passed: {value}");
             }
