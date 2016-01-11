@@ -43,7 +43,7 @@ namespace CtaSharp.EndPoint
 			_dataSource.AddParameter ("key", _APIKey);
 
             var data = _dataSource.Execute();
-            IEnumerable<ETA> result = _converter.Convert(data, "eta");
+            IEnumerable<ETA> result = _converter.Convert(data, "ctatt");
 
             return result;
         }
