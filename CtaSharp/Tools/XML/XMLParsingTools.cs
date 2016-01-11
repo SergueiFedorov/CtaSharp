@@ -19,8 +19,13 @@ namespace CtaSharp.Tools.XML
             return int.Parse(value);
         }
 
-        internal static bool PraseBool(string value)
+        internal static bool ParseBool(string value)
         {
+            if (value != "1" && value != "0")
+            {
+                throw new Exception($"Value passed to ParseBool is not 1 or 0. Value passed: {value}");
+            }
+
             return value == "1";
         }
 
@@ -29,7 +34,6 @@ namespace CtaSharp.Tools.XML
             return parent.Descendants().Single(x => x.Name == name).Value;
         }
 
-		//Todo: Query is a bit too deep nested
 		internal static string ExtractAttribute(XElement element, string attributeName)
 		{
 			return element.Attributes().Single(attrib => attrib.Name == attributeName).Value;
