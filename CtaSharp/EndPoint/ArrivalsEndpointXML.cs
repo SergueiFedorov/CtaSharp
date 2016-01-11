@@ -19,6 +19,7 @@ namespace CtaSharp.EndPoint
 		{
 			this._dataSource = new ArrivalsDataSource ();
 			this._converter = new XMLToETAConverter ();
+            this._APIKey = APIKey;
 		}
 
 		internal ArrivalsEndpointXML(string APIKey, IXmlConverter<ETA> converter, IDataSource dataSource)

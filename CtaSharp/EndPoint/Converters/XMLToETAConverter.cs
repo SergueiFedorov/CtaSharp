@@ -20,7 +20,9 @@ namespace CtaSharp.EndPoint.Converters
 			}
 
             var parsedXML = XDocument.Parse(XML);
-            var etas = parsedXML.Descendants().Where(x => x.Name == parentNodeName);
+            var parentNode = parsedXML.Descendants().Where(x => x.Name == parentNodeName);
+            var etas = parentNode.SelectMany(x => x.Descendants().Where(y => y.Name == "eta"));
+
 
             List<ETA> parsedETA = new List<ETA>();
             foreach (XElement eta in etas)

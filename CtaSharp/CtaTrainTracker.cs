@@ -38,6 +38,16 @@ namespace CtaSharp
             return endpoint.Get(parameters);
         }
 
+        public IEnumerable<ETA> GetArrivalTimeByStopID(int stopID)
+        {
+            IEndpoint<ETA, ArrivalsParameters> endpoint = new ArrivalsEndpointXML(this._APIKey);
+            ArrivalsParameters parameters = new ArrivalsParameters()
+            {
+                NumericStopIdentifier = stopID
+            };
+
+            return endpoint.Get(parameters);
+        }
 
     }
 }
