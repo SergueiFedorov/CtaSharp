@@ -50,6 +50,7 @@
     <Compile Include="EndPoint\Converters\XMLToETAConverter.cs" />
     <Compile Include="EndPoint\DataSource\IDataSource.cs" />
     <Compile Include="EndPoint\RouteEndPointXML.cs" />
+    <Compile Include="Extension\TrainExtensionMethods.cs" />
     <Compile Include="Models\ETA.cs" />
     <Compile Include="Models\Route.cs" />
     <Compile Include="Models\Train.cs" />
@@ -79,7 +80,5 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <ItemGroup>
-    <Folder Include="Enums\" />
-  </ItemGroup>
+  <ItemGroup />
 </Project>

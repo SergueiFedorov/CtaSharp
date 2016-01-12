@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Xml.Linq;
 using System;
+using CtaSharp.Enums;
 
 [assembly: InternalsVisibleTo("CtaSharp.UnitTests")]
 
@@ -12,6 +13,11 @@ namespace CtaSharp.EndPoint.Converters
 {
     internal class XMLToETAConverter : IXmlConverter<ETA>
     {
+        public XMLToETAConverter()
+        {
+
+        }
+
         public IEnumerable<ETA> Convert(string XML, string parentNodeName)
         {
 			if (string.IsNullOrEmpty (XML) || string.IsNullOrEmpty (parentNodeName)) 

@@ -1,4 +1,5 @@
 ﻿using System;
+using CtaSharp.Enums;
 
 namespace CtaSharp.Models
 {
@@ -20,5 +21,6 @@ namespace CtaSharp.Models
         public bool IsDelayed { get; set; }
         public bool IsFaultDetected { get; set; }
         public string Flags { get; set; }
+        public EnumTrainRoute Route { get; internal set; }
     }
 }

@@ -1,9 +1,26 @@
-﻿using System;
+﻿using CtaSharp.EndPoint.Converters;
+using CtaSharp.EndPoint.DataSource;
+using CtaSharp.Parameters;
+using System;
 
 namespace CtaSharp.Models
 {
     public class Train
     {
+        internal IDataSource DataSource { get; }
+        internal IXmlConverter<Route> RouteConverter { get; }
+
+        internal Train(IDataSource dataSource, IXmlConverter<Route> converter)
+        {
+            DataSource = dataSource;
+            RouteConverter = converter;
+        }
+
+        public Train()
+        {
+
+        }
+
         public ushort RunNumber { get; set; }
         public ushort DestinationStopNumber { get; set; }
         public int TrainDirection { get; set; }

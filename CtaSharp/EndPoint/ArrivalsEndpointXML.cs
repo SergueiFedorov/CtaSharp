@@ -6,6 +6,7 @@ using CtaSharp.Models;
 using CtaSharp.Parameters;
 using CtaSharp.EndPoint.DataSource;
 using CtaSharp.EndPoint.Converters;
+using CtaSharp.Tools.XML;
 
 namespace CtaSharp.EndPoint
 {
@@ -36,9 +37,8 @@ namespace CtaSharp.EndPoint
 			ApplyParameters (_dataSource, parameters);
 
 			var data = _dataSource.Execute ();
-			IXmlConverter<ETA> endpoint = new XMLToETAConverter ();
 
-			return endpoint.Convert (data, "ctatt");
+			return this._converter.Convert (data, "ctatt");
 		}
 
 		private void ApplyParameters(IDataSource dataSource, ArrivalsParameters parameters)
