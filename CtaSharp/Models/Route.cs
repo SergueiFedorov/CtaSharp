@@ -9,6 +9,8 @@ namespace CtaSharp.Models
 {
     public class Route
     {
+        internal IEndpoint<Route, RouteParameters> EndPoint { get; set; }
+
 		public EnumTrainRoute TrainRoute { get; set; }
         public IEnumerable<Train> Trains { get; set; }
     }

@@ -47,10 +47,9 @@ namespace CtaSharp.EndPoint
 
             //Inject dependencies.
             //Todo: must be a cleaner way to do this
-            foreach (var train in route.SelectMany(x => x.Trains))
+            foreach (var routeToInject in route)
             {
-                train.RouteConverter = _RouteConverter;
-                train.DataSource = _RouteDataSource;
+                routeToInject.EndPoint = this;
             }
 
 			return route;

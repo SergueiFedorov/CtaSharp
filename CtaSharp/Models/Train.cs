@@ -7,14 +7,9 @@ namespace CtaSharp.Models
 {
     public class Train
     {
-        internal IDataSource DataSource { set; get; }
-        internal IXmlConverter<Route> RouteConverter { set;  get; }
-
         internal Train(Route route, IDataSource dataSource, IXmlConverter<Route> converter)
         {
             this.Route = route;
-            DataSource = dataSource;
-            RouteConverter = converter;
         }
 
         public Train()

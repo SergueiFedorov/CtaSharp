@@ -33,24 +33,27 @@ namespace CtaSharp.EndPoint.Converters
             List<Train> parsedTrains = new List<Train>();
 			foreach (XElement train in trainsXelements)
             {
-                parsedTrains.Add(new Train()
+                var newTrain = new Train()
                 {
-                    DestinationName =           XMLParsingTools.ExtractValue(train, "destNm"),
-                    RunNumber =                 XMLParsingTools.ParseUShort(XMLParsingTools.ExtractValue(train, "rn")),
-                    DestinationStopNumber =     XMLParsingTools.ParseUShort(XMLParsingTools.ExtractValue(train, "destSt")),
-                    IsApproaching =             XMLParsingTools.ParseBool(XMLParsingTools.ExtractValue(train, "isApp")),
-                    IsDelayed =                 XMLParsingTools.ParseBool(XMLParsingTools.ExtractValue(train, "isDly")),
-                    HeadingDegrees =            XMLParsingTools.ParseInt(XMLParsingTools.ExtractValue(train, "heading")),
-                    TrainLongitude =            XMLParsingTools.ParseDecimal(XMLParsingTools.ExtractValue(train, "lon")),
-                    TrainLatitude =             XMLParsingTools.ParseDecimal(XMLParsingTools.ExtractValue(train, "lat")),
-                    TrainDirection =            XMLParsingTools.ParseInt(XMLParsingTools.ExtractValue(train, "trDr")),
-                    PredicationGeneratedTime =  XMLParsingTools.PraseDateTime(XMLParsingTools.ExtractValue(train, "prdt")),
-                    PredicatedArrival =         XMLParsingTools.PraseDateTime(XMLParsingTools.ExtractValue(train, "arrT")),
-                    NextStationID =             XMLParsingTools.ParseUShort(XMLParsingTools.ExtractValue(train, "nextStaId")),
-                    NextStopID =                XMLParsingTools.ParseUShort(XMLParsingTools.ExtractValue(train, "nextStpId")),
-                    NextStationName =           XMLParsingTools.ExtractValue(train, "nextStaNm"),
-                    Flags =                     XMLParsingTools.ExtractValue(train, "flags")
-                });
+                    DestinationName = XMLParsingTools.ExtractValue(train, "destNm"),
+                    RunNumber = XMLParsingTools.ParseUShort(XMLParsingTools.ExtractValue(train, "rn")),
+                    DestinationStopNumber = XMLParsingTools.ParseUShort(XMLParsingTools.ExtractValue(train, "destSt")),
+                    IsApproaching = XMLParsingTools.ParseBool(XMLParsingTools.ExtractValue(train, "isApp")),
+                    IsDelayed = XMLParsingTools.ParseBool(XMLParsingTools.ExtractValue(train, "isDly")),
+                    HeadingDegrees = XMLParsingTools.ParseInt(XMLParsingTools.ExtractValue(train, "heading")),
+                    TrainLongitude = XMLParsingTools.ParseDecimal(XMLParsingTools.ExtractValue(train, "lon")),
+                    TrainLatitude = XMLParsingTools.ParseDecimal(XMLParsingTools.ExtractValue(train, "lat")),
+                    TrainDirection = XMLParsingTools.ParseInt(XMLParsingTools.ExtractValue(train, "trDr")),
+                    PredicationGeneratedTime = XMLParsingTools.PraseDateTime(XMLParsingTools.ExtractValue(train, "prdt")),
+                    PredicatedArrival = XMLParsingTools.PraseDateTime(XMLParsingTools.ExtractValue(train, "arrT")),
+                    NextStationID = XMLParsingTools.ParseUShort(XMLParsingTools.ExtractValue(train, "nextStaId")),
+                    NextStopID = XMLParsingTools.ParseUShort(XMLParsingTools.ExtractValue(train, "nextStpId")),
+                    NextStationName = XMLParsingTools.ExtractValue(train, "nextStaNm"),
+                    Flags = XMLParsingTools.ExtractValue(train, "flags")
+                };
+
+                newTrain.Route = route;
+                parsedTrains.Add(newTrain);
 
             }
 
