@@ -17,10 +17,7 @@ namespace CtaSharp
 				throw new Exception ("Unable to refresh route. No results returned endpoint.");
 			}
 
-			route.EndPoint = result.EndPoint;
-			route.TrainRoute = result.TrainRoute;
-			route.Trains = result.Trains;
-
+			route.UpdateWith (result);
 		}
 	}
 }

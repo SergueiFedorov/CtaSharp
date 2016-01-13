@@ -69,6 +69,7 @@
     <Compile Include="EndPoint\ArrivalsEndpointXML.cs" />
     <Compile Include="Parameters\ArrivalsParameters.cs" />
     <Compile Include="Extension\RouteExtensionMethods.cs" />
+    <Compile Include="Models\ModelBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

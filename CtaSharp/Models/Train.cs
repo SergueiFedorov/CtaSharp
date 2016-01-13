@@ -5,18 +5,12 @@ using System;
 
 namespace CtaSharp.Models
 {
-    public class Train
+	public class Train : ModelBase<Train>
     {
-        internal Train(Route route, IDataSource dataSource, IXmlConverter<Route> converter)
+        internal Train(Route route)
         {
             this.Route = route;
         }
-
-        public Train()
-        {
-
-        }
-
 
         public Route Route { get; set; }
         public ushort RunNumber { get; set; }
@@ -34,5 +28,25 @@ namespace CtaSharp.Models
         public decimal TrainLatitude { get; set; }
         public decimal TrainLongitude { get; set; }
         public int HeadingDegrees { get; set; }
+
+		internal override void UpdateWith (Train obj)
+		{
+			this.Route = obj.Route;
+			this.RunNumber = obj.RunNumber;
+			this.DestinationStopNumber = obj.DestinationStopNumber;
+			this.TrainDirection = obj.TrainDirection;
+			this.DestinationName = obj.DestinationName;
+			this.NextStationID = obj.NextStationID;
+			this.NextStopID = obj.NextStopID;
+			this.NextStationName = obj.NextStationName;
+			this.PredicationGeneratedTime = obj.PredicationGeneratedTime;
+			this.PredicatedArrival = obj.PredicatedArrival;
+			this.IsApproaching = obj.IsApproaching;
+			this.IsDelayed = obj.IsDelayed;
+			this.Flags = obj.Flags;
+			this.TrainLatitude = obj.TrainLatitude;
+			this.TrainLongitude = obj.TrainLongitude;
+			this.HeadingDegrees = obj.HeadingDegrees;
+		}
     }
 }

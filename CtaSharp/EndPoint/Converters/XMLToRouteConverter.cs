@@ -33,7 +33,7 @@ namespace CtaSharp.EndPoint.Converters
             List<Train> parsedTrains = new List<Train>();
 			foreach (XElement train in trainsXelements)
             {
-                var newTrain = new Train()
+				var newTrain = new Train(route)
                 {
                     DestinationName = XMLParsingTools.ExtractValue(train, "destNm"),
                     RunNumber = XMLParsingTools.ParseUShort(XMLParsingTools.ExtractValue(train, "rn")),
@@ -52,7 +52,7 @@ namespace CtaSharp.EndPoint.Converters
                     Flags = XMLParsingTools.ExtractValue(train, "flags")
                 };
 
-                newTrain.Route = route;
+                //newTrain.Route = route;
                 parsedTrains.Add(newTrain);
 
             }
