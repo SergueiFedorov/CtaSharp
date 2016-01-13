@@ -43,9 +43,10 @@ namespace CtaSharp.Tools.XML
         {
             return decimal.Parse(value);
         }
-
+			
         internal static DateTime PraseDateTime(string value)
         {
+			//Todo: needs clean up. Prone to format change crashes
             var year = int.Parse(value.Substring(0, 4));
             var month = int.Parse(value.Substring(4, 2));
             var day = int.Parse(value.Substring(6, 2));
