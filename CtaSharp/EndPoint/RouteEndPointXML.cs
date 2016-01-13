@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using CtaSharp.EndPoint.Converters;
 using CtaSharp.EndPoint.DataSource;
 using System.Runtime.CompilerServices;
-using CtaSharp.Enums;
+using System.Linq;
 
 [assembly: InternalsVisibleTo("CtaSharp.UnitTests")]
 
@@ -44,6 +44,14 @@ namespace CtaSharp.EndPoint
 
 			var data = _RouteDataSource.Execute();
 			var route = _RouteConverter.Convert(data, "ctatt");
+
+            //Inject dependencies.
+            //Todo: must be a cleaner way to do this
+            foreach (var train in route.SelectMany(x => x.Trains))
+            {
+                train.RouteConverter = _RouteConverter;
+                train.DataSource = _RouteDataSource;
+            }
 
 			return route;
         }
