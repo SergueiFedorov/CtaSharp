@@ -38,6 +38,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ETAEndpointXML_Tests.cs" />
+    <Compile Include="ETAExtensionMethods_Tests.cs" />
     <Compile Include="XMLToETAConverter_Tests.cs" />
     <Compile Include="RouteEndPointXML_Tests.cs" />
     <Compile Include="XMLToRouteConverter_Tests.cs" />
