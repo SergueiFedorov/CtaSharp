@@ -46,10 +46,8 @@
   <ItemGroup>
     <Compile Include="EndPoint\DataSource\DataSourceBase.cs" />
     <Compile Include="EndPoint\DataSource\ETADataSource.cs" />
-    <Compile Include="EndPoint\ETAEndPointXML.cs" />
     <Compile Include="EndPoint\Converters\XMLToETAConverter.cs" />
-    <Compile Include="EndPoint\DataSource\IDataSource.cs" />
-    <Compile Include="EndPoint\RouteEndPointXML.cs" />
+    <Compile Include="EndPoint\ETAEndPoint.cs" />
     <Compile Include="Extension\TrainExtensionMethods.cs" />
     <Compile Include="Models\ETA.cs" />
     <Compile Include="Models\Route.cs" />
@@ -57,19 +55,21 @@
     <Compile Include="Parameters\ETAParameters.cs" />
     <Compile Include="Parameters\RouteParameters.cs" />
     <Compile Include="CtaTrainTracker.cs" />
-    <Compile Include="EndPoint\IEndpoint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="EndPoint\Converters\IXmlConverter.cs" />
     <Compile Include="Tools\XML\XMLParsingTools.cs" />
     <Compile Include="EndPoint\DataSource\RouteDataSource.cs" />
     <Compile Include="EndPoint\Converters\XMLToRouteConverter.cs" />
     <Compile Include="Tools\RouteHelper.cs" />
     <Compile Include="Enums\EnumTrainRoute.cs" />
     <Compile Include="EndPoint\DataSource\ArrivalsDataSource.cs" />
-    <Compile Include="EndPoint\ArrivalsEndpointXML.cs" />
     <Compile Include="Parameters\ArrivalsParameters.cs" />
     <Compile Include="Extension\RouteExtensionMethods.cs" />
     <Compile Include="Models\ModelBase.cs" />
+    <Compile Include="EndPoint\ArrivalsEndpoint.cs" />
+    <Compile Include="EndPoint\RouteEndPoint.cs" />
+    <Compile Include="EndPoint\Interfaces\IEndpoint.cs" />
+    <Compile Include="EndPoint\Interfaces\IDataSource.cs" />
+    <Compile Include="EndPoint\Interfaces\IConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -83,4 +83,7 @@
   </Target>
   -->
   <ItemGroup />
+  <ItemGroup>
+    <Folder Include="EndPoint\Interfaces\" />
+  </ItemGroup>
 </Project>

@@ -4,6 +4,7 @@ using CtaSharp.Parameters;
 using System.Collections.Generic;
 using System.Linq;
 using CtaSharp.Enums;
+using System;
 
 namespace CtaSharp
 {
@@ -24,6 +25,10 @@ namespace CtaSharp
 			IEndpoint<ETA, ETAParameters> etaEndpoint,
 			IEndpoint<ETA, ArrivalsParameters> arrivalsEnpoint)
 		{
+			if (routeEnpoint == null || etaEndpoint == null || arrivalsEnpoint == null) {
+				throw new ArgumentNullException ("All endpoints must be provided");
+			}
+
 			this._routeEnpoint = routeEnpoint;
 			this._etaEndpoint = etaEndpoint;
 			this._arrivalsEnpoint = arrivalsEnpoint;
