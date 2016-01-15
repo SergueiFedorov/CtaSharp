@@ -39,6 +39,7 @@ namespace CtaSharp.EndPoint
 			return this._converter.Convert (data, "ctatt");
 		}
 			
+		//Todo: Essentially a switch case. Maybe worth burying it deeper in the code somewhere
 		private void _applyParameters(IDataSource dataSource, ArrivalsParameters parameters)
 		{
 			if (parameters.NumericStationIdentifier.HasValue)

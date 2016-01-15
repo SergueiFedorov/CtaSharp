@@ -9,44 +9,54 @@ namespace CtaSharp
 {
     public class CtaTrainTracker
     {
-        private string _APIKey { get; }
+		private IEndpoint<Route, RouteParameters> _routeEnpoint { get; }
+		private IEndpoint<ETA, ETAParameters> _etaEndpoint { get; }
+		private IEndpoint<ETA, ArrivalsParameters> _arrivalsEnpoint { get; }
 
         public CtaTrainTracker(string APIKey)
+			: this(new RouteEndPointXML (APIKey), new ETAEndPointXML (APIKey), new ArrivalsEndpointXML (APIKey))
         {
-            this._APIKey = APIKey;
+			
         }
+
+		internal CtaTrainTracker(
+			IEndpoint<Route, RouteParameters> routeEnpoint, 
+			IEndpoint<ETA, ETAParameters> etaEndpoint,
+			IEndpoint<ETA, ArrivalsParameters> arrivalsEnpoint)
+		{
+			this._routeEnpoint = routeEnpoint;
+			this._etaEndpoint = etaEndpoint;
+			this._arrivalsEnpoint = arrivalsEnpoint;
+		}
 
         public Route GetRoute(EnumTrainRoute route)
         {
-			IEndpoint<Route, RouteParameters> endpoint = new RouteEndPointXML(this._APIKey);
-            RouteParameters parameters = new RouteParameters()
+            var parameters = new RouteParameters()
             {
                 Route = route
             };
 
-            return endpoint.Get(parameters).FirstOrDefault();
+			return _routeEnpoint.Get(parameters).FirstOrDefault();
         }
         
         public IEnumerable<ETA> GetArrivalTimesByRunNumber(int runNumber)
         {
-            IEndpoint<ETA, ETAParameters> endpoint = new ETAEndPointXML(this._APIKey);
-            ETAParameters parameters = new ETAParameters()
+            var parameters = new ETAParameters()
             {
                 RunNumber = runNumber
             };
 
-            return endpoint.Get(parameters);
+			return _etaEndpoint.Get(parameters);
         }
 
         public IEnumerable<ETA> GetArrivalTimeByStopID(int stopID)
         {
-            IEndpoint<ETA, ArrivalsParameters> endpoint = new ArrivalsEndpointXML(this._APIKey);
-            ArrivalsParameters parameters = new ArrivalsParameters()
+            var parameters = new ArrivalsParameters()
             {
                 NumericStopIdentifier = stopID
             };
 
-            return endpoint.Get(parameters);
+			return _arrivalsEnpoint.Get(parameters);
         }
 
     }
