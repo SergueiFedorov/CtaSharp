@@ -1,5 +1,8 @@
 ﻿using System;
 using CtaSharp.Enums;
+using CtaSharp.EndPoint.DataSource;
+using CtaSharp.EndPoint;
+using CtaSharp.Parameters;
 
 namespace CtaSharp.Models
 {

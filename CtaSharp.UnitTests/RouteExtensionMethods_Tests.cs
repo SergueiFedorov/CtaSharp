@@ -70,7 +70,9 @@ namespace CtaSharp.UnitTests
 
 			var OriginalUpdateTime = result.UpdatedTime;
 
-			result.Refresh ();
+			var isSuccessful = result.TryRefresh ();
+
+			Assert.AreEqual (true, isSuccessful);
 
 			var UpdatedUpdateTime = result.UpdatedTime;
 
