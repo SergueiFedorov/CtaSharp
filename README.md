@@ -1,5 +1,7 @@
 # CtaSharp
-A C# client for the Chicago Transit Authority
+A C# client for the Chicago Transit Authority Web API. 
+
+NOTE: This project is not maintained or affiliated with the Chicago Transit Authority (CTA). CtaSharp is a unofficial C# library for the CTA web API provided by the CTA. You will need to obtain an API key from the CTA to access to their API.
 
 Get Route:
 
