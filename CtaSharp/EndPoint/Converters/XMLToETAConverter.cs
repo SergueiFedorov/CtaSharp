@@ -13,11 +13,6 @@ namespace CtaSharp.EndPoint.Converters
 {
     internal class XMLToETAConverter : IXmlConverter<ETA>
     {
-        public XMLToETAConverter()
-        {
-
-        }
-
         public IEnumerable<ETA> Convert(string XML, string parentNodeName)
         {
 			if (string.IsNullOrEmpty (XML) || string.IsNullOrEmpty (parentNodeName)) 

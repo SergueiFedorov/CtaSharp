@@ -33,32 +33,40 @@ namespace CtaSharp.EndPoint
 		public IEnumerable<ETA> Get (ArrivalsParameters parameters)
 		{
 			_dataSource.AddParameter ("key", this._APIKey);
-
-			ApplyParameters (_dataSource, parameters);
+			_applyParameters (_dataSource, parameters);
 
 			var data = _dataSource.Execute ();
-
 			return this._converter.Convert (data, "ctatt");
 		}
-
-		private void ApplyParameters(IDataSource dataSource, ArrivalsParameters parameters)
+			
+		private void _applyParameters(IDataSource dataSource, ArrivalsParameters parameters)
 		{
 			if (parameters.NumericStationIdentifier.HasValue)
 			{
-				dataSource.AddParameter ("mapid", parameters.NumericStationIdentifier.ToString());
+				_applyParameter(dataSource, "mapid", parameters.NumericStationIdentifier);
 			}
 			if (parameters.NumericStopIdentifier.HasValue)
 			{
-				dataSource.AddParameter ("stpid", parameters.NumericStopIdentifier.ToString());
+				_applyParameter(dataSource, "stpid", parameters.NumericStopIdentifier);
 			}
 			if (parameters.MaximumResults.HasValue) {
-				dataSource.AddParameter ("max", parameters.MaximumResults.ToString());
+				_applyParameter(dataSource, "max", parameters.MaximumResults);
 			}
 			if (string.IsNullOrEmpty (parameters.RouteCode) == false)
 			{
-				dataSource.AddParameter ("rt", parameters.RouteCode);
+				_applyParameter(dataSource, "rt", parameters.RouteCode);
 			}
 		}
+
+		private void _applyParameter<T>(IDataSource dataSource, string name, T value)
+		{
+			if (string.IsNullOrEmpty (name) || dataSource == null || value == null) {
+				throw new ArgumentNullException ();
+			}
+
+			dataSource.AddParameter (name, value.ToString ());
+		}
+
 
 		public async Task<System.Collections.Generic.IEnumerable<ETA>> GetAsync (ArrivalsParameters parameters)
 		{
