@@ -12,38 +12,11 @@ namespace CtaSharp.UnitTests
 	[TestFixture]
 	internal class ArrivalsEndpointXML_Tests
 	{
-		const string XMLDta = 
-@"<ctatt>
-  <tmst>20110618 23:26:50</tmst>
-  <errCd>0</errCd>
-  <errNm/>
-  <eta>
-    <staId>40360</staId>
-    <stpId>30070</stpId>
-    <staNm>Southport</staNm>
-    <stpDe>Service toward Kimball</stpDe>
-    <rn>419</rn>
-    <rt>Brn</rt>
-    <destSt>30249</destSt>
-    <destNm>Kimball</destNm>
-    <trDr>1</trDr>
-    <prdt>20110618 23:26:12</prdt>
-    <arrT>20110618 23:28:12</arrT>
-    <isApp>0</isApp>
-    <isSch>0</isSch>
-    <isDly>0</isDly>
-    <isFlt>0</isFlt>
-    <flags/>
-    <lat>41.97776</lat>
-    <lon>-87.77567</lon>
-    <heading> 299</heading>
-  </eta>
-</ctatt>";
 
 		private IDataSource CreateArrivalsDatasource()
 		{
 			var mock = new Mock<IDataSource> ();
-			mock.Setup (datasource => datasource.Execute ()).Returns (XMLDta);
+			mock.Setup (datasource => datasource.Execute ()).Returns (TestHelper.ArrivalsDataString);
 			return mock.Object;
 		}
 
