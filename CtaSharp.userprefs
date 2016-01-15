@@ -1,4 +1,4 @@
-﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupItem="CtaSharp.Console/CtaSharp.Console.csproj">
+﻿<Properties RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="CtaSharp.UnitTests/RouteExtensionMethods_Tests.cs">
     <Files>
