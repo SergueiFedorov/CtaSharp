@@ -15,7 +15,7 @@ namespace CtaSharp
 		private IEndpoint<ETA, ArrivalsParameters> _arrivalsEnpoint { get; }
 
         public CtaTrainTracker(string APIKey)
-			: this(new RouteEndPointXML (APIKey), new ETAEndPointXML (APIKey), new ArrivalsEndpointXML (APIKey))
+			: this(new RouteEndPoint (APIKey), new ETAEndPoint (APIKey), new ArrivalsEndpoint (APIKey))
         {
 			
         }

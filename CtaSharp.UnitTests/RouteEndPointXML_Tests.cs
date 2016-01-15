@@ -54,7 +54,7 @@ const string XMLData =
 		{
 			var dataSource = CreateDataSource ();
 			var converter = new XMLToRouteConverter ();
-			var endpoint = new RouteEndPointXML ("apikey", converter, dataSource);
+			var endpoint = new RouteEndPoint ("apikey", converter, dataSource);
 
 			var routes = endpoint.Get (new RouteParameters () { Route = EnumTrainRoute.Red });
 
@@ -66,7 +66,7 @@ const string XMLData =
 		{
 			var dataSource = CreateDataSource ();
 			var converter = new XMLToRouteConverter ();
-			var endpoint = new RouteEndPointXML ("apikey", converter, dataSource);
+			var endpoint = new RouteEndPoint ("apikey", converter, dataSource);
 
 			var task = endpoint.GetAsync (new RouteParameters () { Route = EnumTrainRoute.Red });
 

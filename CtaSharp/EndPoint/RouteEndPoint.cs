@@ -12,21 +12,21 @@ using System.Linq;
 
 namespace CtaSharp.EndPoint
 {
-    internal class RouteEndPointXML : IEndpoint<Route, RouteParameters>
+    internal class RouteEndPoint : IEndpoint<Route, RouteParameters>
     {
         IXmlConverter<Route> _RouteConverter { get; }
         IDataSource _RouteDataSource { get; set; }
 
 		string _APIKey { get; }
 
-		internal RouteEndPointXML(string APIKey)
+		internal RouteEndPoint(string APIKey)
         {
 			_APIKey = APIKey;
 			_RouteDataSource = new RouteDataSource ();
 			_RouteConverter = new XMLToRouteConverter();
         }
 
-		internal RouteEndPointXML(string APIKey, IXmlConverter<Route> routeConverter, IDataSource dataSource)
+		internal RouteEndPoint(string APIKey, IXmlConverter<Route> routeConverter, IDataSource dataSource)
         {
 			if (routeConverter == null || dataSource == null || string.IsNullOrEmpty(APIKey)) {
 				throw new ArgumentNullException ();

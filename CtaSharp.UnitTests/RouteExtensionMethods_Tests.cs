@@ -53,7 +53,7 @@ namespace CtaSharp.UnitTests
 			var dataSource = CreateDataSource ();
 			var xmlConverter = new XMLToRouteConverter ();
 			
-			RouteEndPointXML endpoint = new RouteEndPointXML ("key", xmlConverter, dataSource);
+			RouteEndPoint endpoint = new RouteEndPoint ("key", xmlConverter, dataSource);
 			var result = endpoint.Get (new CtaSharp.Parameters.RouteParameters () { Route = EnumTrainRoute.Red }).First();
 
 			Assert.AreEqual (endpoint, result.EndPoint);
@@ -65,7 +65,7 @@ namespace CtaSharp.UnitTests
 			var dataSource = CreateDataSource ();
 			var xmlConverter = new XMLToRouteConverter ();
 
-			RouteEndPointXML endpoint = new RouteEndPointXML ("key", xmlConverter, dataSource);
+			RouteEndPoint endpoint = new RouteEndPoint ("key", xmlConverter, dataSource);
 			var result = endpoint.Get (new CtaSharp.Parameters.RouteParameters () { Route = EnumTrainRoute.Red }).First();
 
 			var OriginalUpdateTime = result.UpdatedTime;

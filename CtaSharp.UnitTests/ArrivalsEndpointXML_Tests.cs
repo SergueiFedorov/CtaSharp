@@ -53,7 +53,7 @@ namespace CtaSharp.UnitTests
 			var dataSource = CreateArrivalsDatasource ();
 			var converter = new XMLToETAConverter ();
 
-			var endpoint = new ArrivalsEndpointXML ("APIKey", converter, dataSource);
+			var endpoint = new ArrivalsEndpoint ("APIKey", converter, dataSource);
 
 			var result = endpoint.Get (new ArrivalsParameters() { });
 

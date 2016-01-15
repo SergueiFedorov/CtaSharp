@@ -50,7 +50,7 @@ namespace CtaSharp.UnitTests
 		public void InjectConverterAndDataSource_CheckNullArguementNoDataSource()
 		{
 			var dataSourceMock = new Mock<IDataSource> ();
-			new ETAEndPointXML ("", null, dataSourceMock.Object);
+			new ETAEndPoint ("", null, dataSourceMock.Object);
 		}
 
 		[Test]
@@ -58,7 +58,7 @@ namespace CtaSharp.UnitTests
 		public void InjectConverterAndDataSource_CheckNullArguementNoConverter()
 		{
 			var converterMock = new Mock<IXmlConverter<ETA>> ();
-			new ETAEndPointXML ("", converterMock.Object, null);
+			new ETAEndPoint ("", converterMock.Object, null);
 		}
 
 		[Test]
@@ -67,7 +67,7 @@ namespace CtaSharp.UnitTests
 			var dataSourceMock = MockETADataSource (XMLData);
 			var xmlConverter = new XMLToETAConverter ();
 
-			var endPoint = new ETAEndPointXML ("key", xmlConverter, dataSourceMock);
+			var endPoint = new ETAEndPoint ("key", xmlConverter, dataSourceMock);
 			var result = endPoint.Get (new ETAParameters () { RunNumber = 123 });
 
 			Assert.AreEqual (1, result.Count ());
@@ -80,7 +80,7 @@ namespace CtaSharp.UnitTests
 			var dataSourceMock = MockETADataSource (XMLData);
 			var xmlConverter = new XMLToETAConverter ();
 
-			var endPoint = new ETAEndPointXML ("key", xmlConverter, dataSourceMock);
+			var endPoint = new ETAEndPoint ("key", xmlConverter, dataSourceMock);
 			var task = endPoint.GetAsync (new ETAParameters () { RunNumber = 123 });
 
 			Assert.NotNull (task);

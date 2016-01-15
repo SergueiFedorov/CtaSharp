@@ -10,20 +10,20 @@ using CtaSharp.Tools.XML;
 
 namespace CtaSharp.EndPoint
 {
-	internal class ArrivalsEndpointXML : IEndpoint<ETA, ArrivalsParameters>
+	internal class ArrivalsEndpoint : IEndpoint<ETA, ArrivalsParameters>
 	{		
 		string _APIKey { get; }
 		IDataSource _dataSource { get; }
 		IXmlConverter<ETA> _converter { get; }
 
-		internal ArrivalsEndpointXML(string APIKey)
+		internal ArrivalsEndpoint(string APIKey)
 		{
 			this._dataSource = new ArrivalsDataSource ();
 			this._converter = new XMLToETAConverter ();
             this._APIKey = APIKey;
 		}
 
-		internal ArrivalsEndpointXML(string APIKey, IXmlConverter<ETA> converter, IDataSource dataSource)
+		internal ArrivalsEndpoint(string APIKey, IXmlConverter<ETA> converter, IDataSource dataSource)
 		{
 			this._dataSource = dataSource;
 			this._converter = converter;
