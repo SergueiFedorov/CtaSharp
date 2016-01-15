@@ -12,14 +12,14 @@ using System;
 
 namespace CtaSharp.EndPoint
 {
-    internal class ETAEndPointXML : IEndpoint<ETA, ETAParameters>
+    internal class ETAEndPoint : IEndpoint<ETA, ETAParameters>
     {
         IXmlConverter<ETA> _converter { get; }
         IDataSource _dataSource { get; }
 	
 		string _APIKey { get; }
 
-        internal ETAEndPointXML(string APIKey, IXmlConverter<ETA> converter, IDataSource dataSource)
+        internal ETAEndPoint(string APIKey, IXmlConverter<ETA> converter, IDataSource dataSource)
         {
 			if (converter == null || dataSource == null || string.IsNullOrEmpty(APIKey)) {
 				throw new ArgumentNullException ();
@@ -30,7 +30,7 @@ namespace CtaSharp.EndPoint
             _converter = converter;
         }
 
-        internal ETAEndPointXML(string APIKey)
+        internal ETAEndPoint(string APIKey)
         {
             _dataSource = new ETADataSource();
             _converter = new XMLToETAConverter();

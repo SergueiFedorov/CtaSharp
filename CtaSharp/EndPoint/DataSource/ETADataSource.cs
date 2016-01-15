@@ -19,6 +19,7 @@ namespace CtaSharp.EndPoint.DataSource
         {
 			var result = base.DownloadContent();
 			_client.QueryString.Clear();
+
 			return result;
         }
     }

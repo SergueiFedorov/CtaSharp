@@ -30,5 +30,10 @@ namespace CtaSharp.EndPoint.DataSource
 		{
 			_client.QueryString.Add(name, value);
 		}
+
+        public void ClearParameters()
+        {
+            _client.QueryString.Clear();
+        }
     }
 }

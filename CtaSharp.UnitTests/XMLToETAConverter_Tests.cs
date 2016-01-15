@@ -9,27 +9,6 @@ namespace CtaSharp.UnitTests
 	[TestFixture]
 	public class XMLToETAConverter_Tests
 	{
-		const string XMLData = 
-@"<ctatt>
-  <eta>
-    <staId>40010</staId>
-    <stpId>30001</stpId>
-    <staNm>Austin</staNm>
-    <stpDe>Austin to O'Hare</stpDe>
-    <rn>123</rn>
-    <rt>Blue Line</rt>
-    <destSt>30171</destSt>
-    <destNm>O'Hare</destNm>
-    <trDr>1</trDr>
-    <prdt>20130515 14:10:23</prdt>
-    <arrT>20130515 14:11:23</arrT>
-    <isApp>1</isApp>
-    <isSch>0</isSch>
-    <isDly>0</isDly>
-    <isFlt>0</isFlt>
-    <flags/> 
-  </eta>
-</ctatt>";
 
 		[Test]
 		[ExpectedException(typeof(ArgumentNullException))]
@@ -44,7 +23,7 @@ namespace CtaSharp.UnitTests
 		public void NullParentNodeString()
 		{
 			XMLToETAConverter converter = new XMLToETAConverter ();
-			converter.Convert (XMLData, null);
+			converter.Convert (TestHelper.ETADataString, null);
 		}
 
 		[Test]
@@ -52,7 +31,7 @@ namespace CtaSharp.UnitTests
 		{
 
 			XMLToETAConverter conveter = new XMLToETAConverter ();
-			var result = conveter.Convert (XMLData, "ctatt").First();
+			var result = conveter.Convert (TestHelper.ETADataString, "ctatt").First();
 
 			Assert.AreEqual (40010, result.StationID);
 			Assert.AreEqual (30001, result.StopID);

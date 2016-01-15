@@ -14,8 +14,7 @@ namespace CtaSharp.EndPoint.DataSource
 
 		public string Execute()
 		{
-			var data = base.DownloadContent ();
-			return data;
+			return base.DownloadContent ();
 		}
 	}
 }

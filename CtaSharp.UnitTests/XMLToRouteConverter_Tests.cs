@@ -13,28 +13,6 @@ namespace CtaSharp.UnitTests
 	[TestFixture]
 	public class XMLToRouteConverter_Tests
 	{
-		const string XMLData = 
-@"<ctatt>
-	<route name=""red"">
-	    <train>
-	      <rn>804</rn>
-	      <destSt>30173</destSt>
-	      <destNm>Howard</destNm>
-	      <trDr>1</trDr>
-	      <nextStaId>41400</nextStaId>
-	      <nextStpId>30269</nextStpId>
-	      <nextStaNm>Roosevelt</nextStaNm>
-	      <prdt>20130610 14:58:48</prdt>
-	      <arrT>20130610 14:59:48</arrT>
-	      <isApp>1</isApp>
-	      <isDly>0</isDly>
-	      <flags />
-	      <lat>41.86579</lat>
-	      <lon>-87.62736</lon>
-	      <heading>358</heading>
-	    </train>
-	</route>
-</ctatt>";
 
 		[Test]
 		[ExpectedException(typeof(ArgumentNullException))]
@@ -49,14 +27,14 @@ namespace CtaSharp.UnitTests
 		public void NullParentNodeString()
 		{
 			IXmlConverter<Route> converter = new XMLToRouteConverter ();
-			converter.Convert (XMLData, null);
+			converter.Convert (TestHelper.RouteDataString, null);
 		}
 
 		[Test]
 		public void BasicConversion()
 		{
 			IXmlConverter<Route> converter = new XMLToRouteConverter ();
-			var result = converter.Convert (XMLData, "route").First();
+			var result = converter.Convert (TestHelper.RouteDataString, "route").First();
 
 			Assert.IsTrue (result.Trains.Any ());
 			Assert.AreEqual (EnumTrainRoute.Red, result.TrainRoute);

@@ -6,27 +6,27 @@ using System.Threading.Tasks;
 using CtaSharp.EndPoint.Converters;
 using CtaSharp.EndPoint.DataSource;
 using System.Runtime.CompilerServices;
-using CtaSharp.Enums;
+using System.Linq;
 
 [assembly: InternalsVisibleTo("CtaSharp.UnitTests")]
 
 namespace CtaSharp.EndPoint
 {
-    internal class RouteEndPointXML : IEndpoint<Route, RouteParameters>
+    internal class RouteEndPoint : IEndpoint<Route, RouteParameters>
     {
         IXmlConverter<Route> _RouteConverter { get; }
         IDataSource _RouteDataSource { get; set; }
 
 		string _APIKey { get; }
 
-		internal RouteEndPointXML(string APIKey)
+		internal RouteEndPoint(string APIKey)
         {
 			_APIKey = APIKey;
 			_RouteDataSource = new RouteDataSource ();
 			_RouteConverter = new XMLToRouteConverter();
         }
 
-		internal RouteEndPointXML(string APIKey, IXmlConverter<Route> routeConverter, IDataSource dataSource)
+		internal RouteEndPoint(string APIKey, IXmlConverter<Route> routeConverter, IDataSource dataSource)
         {
 			if (routeConverter == null || dataSource == null || string.IsNullOrEmpty(APIKey)) {
 				throw new ArgumentNullException ();
@@ -44,6 +44,13 @@ namespace CtaSharp.EndPoint
 
 			var data = _RouteDataSource.Execute();
 			var route = _RouteConverter.Convert(data, "ctatt");
+
+            //Inject dependencies.
+            //Todo: must be a cleaner way to do this
+            foreach (var routeToInject in route)
+            {
+                routeToInject.EndPoint = this;
+            }
 
 			return route;
         }
