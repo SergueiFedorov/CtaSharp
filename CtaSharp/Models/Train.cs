@@ -31,6 +31,8 @@ namespace CtaSharp.Models
 
 		internal override void UpdateWith (Train obj)
 		{
+			this.UpdatedTime = DateTime.Now;
+
 			this.Route = obj.Route;
 			this.RunNumber = obj.RunNumber;
 			this.DestinationStopNumber = obj.DestinationStopNumber;
