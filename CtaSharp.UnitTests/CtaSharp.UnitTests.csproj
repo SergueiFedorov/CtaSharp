@@ -54,6 +54,10 @@
       <Project>{4C6DB954-8A6C-465D-8EB4-BD999C252088}</Project>
       <Name>CtaSharp</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CtaSharp.Shared\CtaSharp.Shared.csproj">
+      <Project>{8C13C7C8-4676-4862-81F6-E5EDB18F2587}</Project>
+      <Name>CtaSharp.Shared</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />

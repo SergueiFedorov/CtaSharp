@@ -56,10 +56,8 @@
     <Compile Include="Parameters\RouteParameters.cs" />
     <Compile Include="CtaTrainTracker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tools\XML\XMLParsingTools.cs" />
     <Compile Include="EndPoint\DataSource\RouteDataSource.cs" />
     <Compile Include="EndPoint\Converters\XMLToRouteConverter.cs" />
-    <Compile Include="Tools\RouteHelper.cs" />
     <Compile Include="Enums\EnumTrainRoute.cs" />
     <Compile Include="EndPoint\DataSource\ArrivalsDataSource.cs" />
     <Compile Include="Parameters\ArrivalsParameters.cs" />
@@ -67,9 +65,7 @@
     <Compile Include="Models\ModelBase.cs" />
     <Compile Include="EndPoint\ArrivalsEndpoint.cs" />
     <Compile Include="EndPoint\RouteEndPoint.cs" />
-    <Compile Include="EndPoint\Interfaces\IEndpoint.cs" />
-    <Compile Include="EndPoint\Interfaces\IDataSource.cs" />
-    <Compile Include="EndPoint\Interfaces\IConverter.cs" />
+    <Compile Include="Tools\RouteHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -84,6 +80,12 @@
   -->
   <ItemGroup />
   <ItemGroup>
-    <Folder Include="EndPoint\Interfaces\" />
+    <Folder Include="Tools\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CtaSharp.Shared\CtaSharp.Shared.csproj">
+      <Project>{8C13C7C8-4676-4862-81F6-E5EDB18F2587}</Project>
+      <Name>CtaSharp.Shared</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

@@ -7,19 +7,19 @@ using System.Xml.Linq;
 
 namespace CtaSharp.Tools.XML
 {
-    internal static class XMLParsingTools
+	public static class XMLParsingTools
     {
-        internal static ushort ParseUShort(string value)
+		public static ushort ParseUShort(string value)
         {
             return ushort.Parse(value);
         }
 
-        internal static int ParseInt(string value)
+		public static int ParseInt(string value)
         {
             return int.Parse(value);
         }
 
-        internal static bool ParseBool(string value)
+		public static bool ParseBool(string value)
         {
             if (value != "1" && value != "0")
             {
@@ -29,22 +29,22 @@ namespace CtaSharp.Tools.XML
             return value == "1";
         }
 
-        internal static string ExtractValue(XElement parent, string name)
+		public static string ExtractValue(XElement parent, string name)
         {
             return parent.Descendants().Single(x => x.Name == name).Value;
         }
 
-		internal static string ExtractAttribute(XElement element, string attributeName)
+		public static string ExtractAttribute(XElement element, string attributeName)
 		{
 			return element.Attributes().Single(attrib => attrib.Name == attributeName).Value;
 		}
 
-        internal static decimal ParseDecimal(string value)
+		public static decimal ParseDecimal(string value)
         {
             return decimal.Parse(value);
         }
 			
-        internal static DateTime PraseDateTime(string value)
+        public static DateTime PraseDateTime(string value)
         {
 			//Todo: needs clean up. Prone to format change crashes
             var year = int.Parse(value.Substring(0, 4));
