@@ -15,17 +15,19 @@ namespace CtaSharp.UnitTests
 	{
 
 		[Test]
+		[ExpectedException(typeof(ArgumentNullException))]
 		public void NullXmlDataString()
 		{
 			IXmlConverter<Route> converter = new XMLToRouteConverter ();
-			Assert.Throws(typeof(ArgumentNullException), () => converter.Convert (null, "parentNode"));
+			converter.Convert (null, "parentNode");
 		}
 
 		[Test]
+		[ExpectedException(typeof(ArgumentNullException))]
 		public void NullParentNodeString()
 		{
 			IXmlConverter<Route> converter = new XMLToRouteConverter ();
-			Assert.Throws(typeof(ArgumentNullException), () => converter.Convert (TestHelper.RouteDataString, null));
+			converter.Convert (TestHelper.RouteDataString, null);
 		}
 
 		[Test]

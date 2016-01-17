@@ -25,19 +25,19 @@ namespace CtaSharp.UnitTests
 		}
 
 		[Test]
-
+		[ExpectedException(typeof(ArgumentNullException))]
 		public void InjectConverterAndDataSource_CheckNullArguementNoDataSource()
 		{
 			var dataSourceMock = new Mock<IDataSource> ();
-			Assert.Throws(typeof(ArgumentNullException), () => new ETAEndPoint ("", null, dataSourceMock.Object));
+			new ETAEndPoint ("", null, dataSourceMock.Object);
 		}
 
 		[Test]
-		//[ExpectedException(typeof(ArgumentNullException))]
+		[ExpectedException(typeof(ArgumentNullException))]
 		public void InjectConverterAndDataSource_CheckNullArguementNoConverter()
 		{
 			var converterMock = new Mock<IXmlConverter<ETA>> ();
-			Assert.Throws(typeof(ArgumentNullException), () => new ETAEndPoint ("", converterMock.Object, null));
+			new ETAEndPoint ("", converterMock.Object, null);
 		}
 
 		[Test]
