@@ -1,4 +1,6 @@
 ﻿using System;
+using Moq;
+using CtaSharp.EndPoint.DataSource;
 
 namespace CtaSharp.UnitTests
 {
@@ -76,6 +78,13 @@ namespace CtaSharp.UnitTests
     <heading> 299</heading>
   </eta>
 </ctatt>";
+
+		public static IDataSource CreateArrivalsDatasource()
+		{
+			var mock = new Mock<IDataSource> ();
+			mock.Setup (datasource => datasource.Execute ()).Returns (TestHelper.ArrivalsDataString);
+			return mock.Object;
+		}
 
 	}
 }

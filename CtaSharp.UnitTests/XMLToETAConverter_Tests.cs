@@ -11,19 +11,17 @@ namespace CtaSharp.UnitTests
 	{
 
 		[Test]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void NullXmlDataString()
 		{
 			XMLToETAConverter converter = new XMLToETAConverter ();
-			converter.Convert (null, "parentNode");
+			Assert.Throws(typeof(ArgumentNullException), () => converter.Convert (null, "parentNode"));
 		}
 
 		[Test]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void NullParentNodeString()
 		{
 			XMLToETAConverter converter = new XMLToETAConverter ();
-			converter.Convert (TestHelper.ETADataString, null);
+			Assert.Throws(typeof(ArgumentNullException), () => converter.Convert (TestHelper.ETADataString, null));
 		}
 
 		[Test]
