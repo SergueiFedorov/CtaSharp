@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using NUnit;
 using CtaSharp.EndPoint;
 using CtaSharp.Models;
 using CtaSharp.Parameters;

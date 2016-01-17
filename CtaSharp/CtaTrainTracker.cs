@@ -44,7 +44,7 @@ namespace CtaSharp
 			return _routeEnpoint.Get(parameters).FirstOrDefault();
         }
         
-        public IEnumerable<ETA> GetArrivalTimesByRunNumber(int runNumber)
+        public IEnumerable<ETA> GetETAByRunNumber(int runNumber)
         {
             var parameters = new ETAParameters()
             {
@@ -54,7 +54,7 @@ namespace CtaSharp
 			return _etaEndpoint.Get(parameters);
         }
 
-        public IEnumerable<ETA> GetArrivalTimeByStopID(int stopID)
+        public IEnumerable<ETA> GetETAByStopID(int stopID)
         {
             var parameters = new ArrivalsParameters()
             {
@@ -63,6 +63,5 @@ namespace CtaSharp
 
 			return _arrivalsEnpoint.Get(parameters);
         }
-
     }
 }

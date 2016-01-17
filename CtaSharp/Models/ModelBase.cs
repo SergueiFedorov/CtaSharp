@@ -14,4 +14,3 @@ namespace CtaSharp
 		internal abstract void UpdateWith(T obj);
 	}
 }
-
