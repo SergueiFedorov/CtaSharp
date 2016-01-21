@@ -60,7 +60,7 @@
       <Project>{8C13C7C8-4676-4862-81F6-E5EDB18F2587}</Project>
       <Name>CtaSharp.Shared</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CtaSharp\CtaSharp.TrainTracker.csproj">
+    <ProjectReference Include="..\CtaSharp.TrainTracker\CtaSharp.TrainTracker.csproj">
       <Project>{4c6db954-8a6c-465d-8eb4-bd999c252088}</Project>
       <Name>CtaSharp.TrainTracker</Name>
     </ProjectReference>

@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CtaSharp.Shared", "CtaSharp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CtaSharp.BusTracker", "CtaSharp.BusTracker\CtaSharp.BusTracker.csproj", "{4C0890D5-8AE3-4E28-A572-7D344154F7FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CtaSharp.TrainTracker", "CtaSharp\CtaSharp.TrainTracker.csproj", "{4C6DB954-8A6C-465D-8EB4-BD999C252088}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CtaSharp.TrainTracker", "CtaSharp.TrainTracker\CtaSharp.TrainTracker.csproj", "{4C6DB954-8A6C-465D-8EB4-BD999C252088}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
