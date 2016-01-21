@@ -35,5 +35,13 @@ namespace CtaSharp.Shared
         {
             _client.QueryString.Clear();
         }
+
+        public string Execute()
+        {
+            var result = base.DownloadContent();
+            _client.QueryString.Clear();
+
+            return result;
+        }
     }
 }
