@@ -15,7 +15,7 @@ namespace CtaSharp.EndPoint
 	{		
 		string _APIKey { get; }
 		IDataSource _dataSource { get; }
-		IXmlConverter<ETA> _converter { get; }
+		IConverter<ETA> _converter { get; }
 
 		internal ArrivalsEndpoint(string APIKey)
 		{
@@ -24,7 +24,7 @@ namespace CtaSharp.EndPoint
             this._APIKey = APIKey;
 		}
 
-		internal ArrivalsEndpoint(string APIKey, IXmlConverter<ETA> converter, IDataSource dataSource)
+		internal ArrivalsEndpoint(string APIKey, IConverter<ETA> converter, IDataSource dataSource)
 		{
 			this._dataSource = dataSource;
 			this._converter = converter;

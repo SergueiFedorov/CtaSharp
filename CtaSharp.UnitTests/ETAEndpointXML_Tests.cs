@@ -35,7 +35,7 @@ namespace CtaSharp.UnitTests
 		[ExpectedException(typeof(ArgumentNullException))]
 		public void InjectConverterAndDataSource_CheckNullArguementNoConverter()
 		{
-			var converterMock = new Mock<IXmlConverter<ETA>> ();
+			var converterMock = new Mock<IConverter<ETA>> ();
 			new ETAEndPoint ("", converterMock.Object, null);
 		}
 

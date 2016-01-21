@@ -11,7 +11,7 @@ using CtaSharp.Shared.Interfaces;
 
 namespace CtaSharp.EndPoint.Converters
 {
-    internal class XMLToETAConverter : IXmlConverter<ETA>
+    internal class XMLToETAConverter : IConverter<ETA>
     {
         public IEnumerable<ETA> Convert(string XML, string parentNodeName)
         {

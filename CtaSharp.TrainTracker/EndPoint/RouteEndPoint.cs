@@ -14,7 +14,7 @@ namespace CtaSharp.EndPoint
 {
     internal class RouteEndPoint : IEndpoint<Route, RouteParameters>
     {
-        IXmlConverter<Route> _RouteConverter { get; }
+        IConverter<Route> _RouteConverter { get; }
         IDataSource _RouteDataSource { get; set; }
 
 		string _APIKey { get; }
@@ -26,7 +26,7 @@ namespace CtaSharp.EndPoint
 			_RouteConverter = new XMLToRouteConverter();
         }
 
-		internal RouteEndPoint(string APIKey, IXmlConverter<Route> routeConverter, IDataSource dataSource)
+		internal RouteEndPoint(string APIKey, IConverter<Route> routeConverter, IDataSource dataSource)
         {
 			if (routeConverter == null || dataSource == null || string.IsNullOrEmpty(APIKey)) {
 				throw new ArgumentNullException ();

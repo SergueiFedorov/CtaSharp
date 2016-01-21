@@ -15,12 +15,12 @@ namespace CtaSharp.EndPoint
 {
     internal class ETAEndPoint : IEndpoint<ETA, ETAParameters>
     {
-        IXmlConverter<ETA> _converter { get; }
+        IConverter<ETA> _converter { get; }
         IDataSource _dataSource { get; }
 	
 		string _APIKey { get; }
 
-        internal ETAEndPoint(string APIKey, IXmlConverter<ETA> converter, IDataSource dataSource)
+        internal ETAEndPoint(string APIKey, IConverter<ETA> converter, IDataSource dataSource)
         {
 			if (converter == null || dataSource == null || string.IsNullOrEmpty(APIKey)) {
 				throw new ArgumentNullException ();

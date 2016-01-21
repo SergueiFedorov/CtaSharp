@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 
 namespace CtaSharp.Shared.Interfaces
 {
-    public interface IXmlConverter<T>
+    public interface IConverter<T>
     {
         IEnumerable<T> Convert(string XML, string parentNodeName);
     }

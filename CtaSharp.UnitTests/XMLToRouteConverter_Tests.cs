@@ -16,7 +16,7 @@ namespace CtaSharp.UnitTests
 		[ExpectedException(typeof(ArgumentNullException))]
 		public void NullXmlDataString()
 		{
-			IXmlConverter<Route> converter = new XMLToRouteConverter ();
+			IConverter<Route> converter = new XMLToRouteConverter ();
 			converter.Convert (null, "parentNode");
 		}
 
@@ -24,14 +24,14 @@ namespace CtaSharp.UnitTests
 		[ExpectedException(typeof(ArgumentNullException))]
 		public void NullParentNodeString()
 		{
-			IXmlConverter<Route> converter = new XMLToRouteConverter ();
+			IConverter<Route> converter = new XMLToRouteConverter ();
 			converter.Convert (TestHelper.RouteDataString, null);
 		}
 
 		[Test]
 		public void BasicConversion()
 		{
-			IXmlConverter<Route> converter = new XMLToRouteConverter ();
+			IConverter<Route> converter = new XMLToRouteConverter ();
 			var result = converter.Convert (TestHelper.RouteDataString, "route").First();
 
 			Assert.IsTrue (result.Trains.Any ());

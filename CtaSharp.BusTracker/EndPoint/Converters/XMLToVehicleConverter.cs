@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CtaSharp.BusTracker.EndPoint.Converters
 {
-    class XMLToVehicleConverter : IXmlConverter<Vehicle>
+    class XMLToVehicleConverter : IConverter<Vehicle>
     {
         public IEnumerable<Vehicle> Convert(string XML, string parentNodeName)
         {
