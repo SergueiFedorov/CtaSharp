@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using CtaSharp.Enums;
 using System;
+using CtaSharp.Shared.Interfaces;
 
 namespace CtaSharp
 {

@@ -3,7 +3,7 @@
 [assembly: InternalsVisibleTo("CtaSharp.UnitTests")]
 [assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]
 
-namespace CtaSharp.EndPoint.DataSource
+namespace CtaSharp.Shared.Interfaces
 {
 	public interface IDataSource
     {

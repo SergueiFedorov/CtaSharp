@@ -4,7 +4,7 @@ using CtaSharp.Parameters;
 using CtaSharp.EndPoint;
 using CtaSharp.Enums;
 using System;
-
+using CtaSharp.Shared.Interfaces;
 
 namespace CtaSharp.Models
 {

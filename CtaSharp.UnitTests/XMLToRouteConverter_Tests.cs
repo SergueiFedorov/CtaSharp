@@ -1,12 +1,10 @@
 ﻿using System;
-using NUnit;
 using NUnit.Framework;
 using CtaSharp.EndPoint.Converters;
-using CtaSharp.EndPoint.DataSource;
-using CtaSharp.Parameters;
 using CtaSharp.Models;
 using System.Linq;
 using CtaSharp.Enums;
+using CtaSharp.Shared.Interfaces;
 
 namespace CtaSharp.UnitTests
 {

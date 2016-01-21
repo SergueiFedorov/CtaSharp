@@ -5,7 +5,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Xml.Linq;
 using System;
-using CtaSharp.Enums;
+using CtaSharp.Shared.Interfaces;
 
 [assembly: InternalsVisibleTo("CtaSharp.UnitTests")]
 

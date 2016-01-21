@@ -44,7 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EndPoint\DataSource\DataSourceBase.cs" />
     <Compile Include="EndPoint\DataSource\ETADataSource.cs" />
     <Compile Include="EndPoint\Converters\XMLToETAConverter.cs" />
     <Compile Include="EndPoint\ETAEndPoint.cs" />
@@ -79,9 +78,7 @@
   </Target>
   -->
   <ItemGroup />
-  <ItemGroup>
-    <Folder Include="Tools\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\CtaSharp.Shared\CtaSharp.Shared.csproj">
       <Project>{8C13C7C8-4676-4862-81F6-E5EDB18F2587}</Project>

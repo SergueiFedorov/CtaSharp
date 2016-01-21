@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using CtaSharp.EndPoint.Converters;
 using CtaSharp.EndPoint.DataSource;
 using System.Runtime.CompilerServices;
-using System.Linq;
+using CtaSharp.Shared.Interfaces;
 
 [assembly: InternalsVisibleTo("CtaSharp.UnitTests")]
 

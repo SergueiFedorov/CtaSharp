@@ -7,6 +7,7 @@ using CtaSharp.Parameters;
 using CtaSharp.EndPoint.DataSource;
 using CtaSharp.EndPoint.Converters;
 using CtaSharp.Tools.XML;
+using CtaSharp.Shared.Interfaces;
 
 namespace CtaSharp.EndPoint
 {

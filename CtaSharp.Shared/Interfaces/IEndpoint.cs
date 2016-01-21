@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 [assembly: InternalsVisibleTo("CtaSharp.UnitTests")]
 
-namespace CtaSharp.EndPoint
+namespace CtaSharp.Shared.Interfaces
 {
 	public interface IEndpoint<Model, Parameters>
     {

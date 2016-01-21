@@ -1,11 +1,11 @@
 ﻿using CtaSharp.Models;
 using CtaSharp.Tools.XML;
-using CtaSharp.Tools;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Xml.Linq;
 using System;
+using CtaSharp.Shared.Interfaces;
 
 [assembly: InternalsVisibleTo("CtaSharp.UnitTests")]
 

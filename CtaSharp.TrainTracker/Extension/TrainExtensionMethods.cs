@@ -1,11 +1,8 @@
-﻿using CtaSharp.EndPoint;
-using CtaSharp.EndPoint.DataSource;
-using CtaSharp.Models;
+﻿using CtaSharp.Models;
 using CtaSharp.Parameters;
-using System;
+using CtaSharp.Shared.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace CtaSharp.Extension

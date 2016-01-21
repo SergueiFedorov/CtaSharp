@@ -1,4 +1,5 @@
-﻿using CtaSharp.Models;
+﻿using CtaSharp.Shared;
+using CtaSharp.Shared.Interfaces;
 using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("CtaSharp.UnitTests")]

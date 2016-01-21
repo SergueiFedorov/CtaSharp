@@ -10,6 +10,7 @@ using CtaSharp;
 using CtaSharp.Models;
 using System.Linq;
 using CtaSharp.Enums;
+using CtaSharp.Shared.Interfaces;
 
 namespace CtaSharp.UnitTests
 {

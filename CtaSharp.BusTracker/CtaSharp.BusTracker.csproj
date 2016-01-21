@@ -41,7 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EndPoint\Converters\XMLToVehicleConverter.cs" />
+    <Compile Include="EndPoint\VehicleDataSource.cs" />
+    <Compile Include="EndPoint\VehicleEndpoint.cs" />
+    <Compile Include="Models\Vehicle.cs" />
+    <Compile Include="Parameters\VehicleParameters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CtaSharp.Shared\CtaSharp.Shared.csproj">
+      <Project>{8c13c7c8-4676-4862-81f6-e5edb18f2587}</Project>
+      <Name>CtaSharp.Shared</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -8,6 +8,7 @@ using CtaSharp.EndPoint;
 using CtaSharp.EndPoint.Converters;
 using CtaSharp.EndPoint.DataSource;
 using CtaSharp.Enums;
+using CtaSharp.Shared.Interfaces;
 
 namespace CtaSharp.UnitTests
 {

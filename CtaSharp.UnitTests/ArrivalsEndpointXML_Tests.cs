@@ -6,6 +6,7 @@ using NUnit.Framework;
 using NUnit;
 using Moq;
 using System.Linq;
+using CtaSharp.Shared.Interfaces;
 
 namespace CtaSharp.UnitTests
 {

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CtaSharp.Shared.Interfaces;
+using CtaSharp.Shared;
+using System;
 
 namespace CtaSharp.EndPoint.DataSource
 {
