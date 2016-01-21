@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EndPoint\Converters\XMLToVehicleConverter.cs" />
-    <Compile Include="EndPoint\VehicleDataSource.cs" />
+    <Compile Include="EndPoint\DataSource\VehicleDataSource.cs" />
     <Compile Include="EndPoint\VehicleEndpoint.cs" />
     <Compile Include="Models\Vehicle.cs" />
     <Compile Include="Parameters\VehicleParameters.cs" />
@@ -54,9 +54,7 @@
       <Name>CtaSharp.Shared</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="EndPoint\DataSource\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

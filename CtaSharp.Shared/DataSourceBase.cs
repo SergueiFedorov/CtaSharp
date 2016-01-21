@@ -38,7 +38,7 @@ namespace CtaSharp.Shared
 
         public string Execute()
         {
-            var result = base.DownloadContent();
+            var result = DownloadContent();
             _client.QueryString.Clear();
 
             return result;
