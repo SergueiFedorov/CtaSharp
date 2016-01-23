@@ -25,16 +25,26 @@ namespace CtaSharp.BusTracker.EndPoint.Converters
 			var parentNode = parsedXML.Descendants().Where(x => x.Name == parentNodeName);
 			var vehicles = parentNode.SelectMany(x => x.Descendants().Where(y => y.Name == "vehicle"));
 
+			var returnList = new List<Vehicle> ();
+
 			foreach (var vehicleXML in vehicles) {
-				XMLParsingTools.ExtractValue (vehicleXML, "vid");
-				XMLParsingTools.ExtractValue (vehicleXML, "tmstmp");
-				XMLParsingTools.ExtractValue (vehicleXML, "");
-				XMLParsingTools.ExtractValue (vehicleXML, "");
-				XMLParsingTools.ExtractValue (vehicleXML, "");
-				XMLParsingTools.ExtractValue (vehicleXML, "");
+				Vehicle vehicle = new Vehicle ();
+
+				vehicle.VehicleId = 		XMLParsingTools.ParseInt(XMLParsingTools.ExtractValue (vehicleXML, "vid"));
+				vehicle.TimeStamp = 		XMLParsingTools.PraseDateTime(XMLParsingTools.ExtractValue (vehicleXML, "tmstmp"));
+				vehicle.Latitude =  		XMLParsingTools.ParseDecimal(XMLParsingTools.ExtractValue (vehicleXML, "lat"));
+				vehicle.Longitude = 		XMLParsingTools.ParseDecimal(XMLParsingTools.ExtractValue  (vehicleXML, "lon"));
+				vehicle.HeadingDegrees =  	XMLParsingTools.ParseInt(XMLParsingTools.ExtractValue (vehicleXML, "hdg"));
+				vehicle.ParentPatternID = 	XMLParsingTools.ParseInt(XMLParsingTools.ExtractValue (vehicleXML, "pid"));
+				vehicle.ParentDistance = 	XMLParsingTools.ParseInt(XMLParsingTools.ExtractValue (vehicleXML, "pdist"));
+				vehicle.Route = 			XMLParsingTools.ParseInt(XMLParsingTools.ExtractValue (vehicleXML, "rt"));
+				vehicle.Destination = 		XMLParsingTools.ExtractValue (vehicleXML, "des");
+				vehicle.Delayed = 			XMLParsingTools.ParseBool(XMLParsingTools.ExtractValue (vehicleXML, "dly"));
+			
+				returnList.Add (vehicle);
 			}
 
-			throw new ArgumentNullException ();
+			return returnList;
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CtaSharp.BusTracker.Models
 {
-    class Vehicle
+	public class Vehicle
     {
 		public int VehicleId { get; set; }
 		public decimal Latitude { get; set; }
@@ -18,5 +18,6 @@ namespace CtaSharp.BusTracker.Models
 		public int ParentPatternID { get; set; }
 		public int ParentDistance { get; set; }
 		public bool Delayed { get; set; }
+		public DateTime TimeStamp { get; set; }
     }
 }
