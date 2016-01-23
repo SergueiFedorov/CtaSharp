@@ -9,10 +9,13 @@ using System.Xml.Linq;
 using System.Xml;
 using CtaSharp.Shared;
 using CtaSharp.Tools.XML;
+using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("CtaSharp.UnitTests")]
 
 namespace CtaSharp.BusTracker.EndPoint.Converters
 {
-    class XMLToVehicleConverter : IConverter<Vehicle>
+    internal class XMLToVehicleConverter : IConverter<Vehicle>
     {
         public IEnumerable<Vehicle> Convert(string XML, string parentNodeName)
         {
@@ -22,8 +25,8 @@ namespace CtaSharp.BusTracker.EndPoint.Converters
 			}
 
 			var parsedXML = XDocument.Parse(XML);
-			var parentNode = parsedXML.Descendants().Where(x => x.Name == parentNodeName);
-			var vehicles = parentNode.SelectMany(x => x.Descendants().Where(y => y.Name == "vehicle"));
+			//var parentNode = parsedXML.Descendants().Where(x => x.Name == parentNodeName);
+			var vehicles = parsedXML.Descendants().SelectMany(x => x.Descendants().Where(y => y.Name == "vehicle"));
 
 			var returnList = new List<Vehicle> ();
 
@@ -31,7 +34,7 @@ namespace CtaSharp.BusTracker.EndPoint.Converters
 				Vehicle vehicle = new Vehicle ();
 
 				vehicle.VehicleId = 		XMLParsingTools.ParseInt(XMLParsingTools.ExtractValue (vehicleXML, "vid"));
-				vehicle.TimeStamp = 		XMLParsingTools.PraseDateTime(XMLParsingTools.ExtractValue (vehicleXML, "tmstmp"));
+				vehicle.TimeStamp = 		XMLParsingTools.ParseBusDateTime(XMLParsingTools.ExtractValue (vehicleXML, "tmstmp"));
 				vehicle.Latitude =  		XMLParsingTools.ParseDecimal(XMLParsingTools.ExtractValue (vehicleXML, "lat"));
 				vehicle.Longitude = 		XMLParsingTools.ParseDecimal(XMLParsingTools.ExtractValue  (vehicleXML, "lon"));
 				vehicle.HeadingDegrees =  	XMLParsingTools.ParseInt(XMLParsingTools.ExtractValue (vehicleXML, "hdg"));

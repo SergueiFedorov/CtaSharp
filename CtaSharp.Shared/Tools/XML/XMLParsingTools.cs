@@ -44,6 +44,20 @@ namespace CtaSharp.Tools.XML
             return decimal.Parse(value);
         }
 			
+		public static DateTime ParseBusDateTime(string value)
+		{
+			var year = int.Parse(value.Substring(0, 4));
+			var month = int.Parse(value.Substring(4, 2));
+			var day = int.Parse(value.Substring(6, 2));
+
+			var timeSegments = value.Substring(9, 5).Split(':');
+
+			var hour = int.Parse(timeSegments[0]);
+			var minute = int.Parse(timeSegments[1]);
+
+			return new DateTime(year, month, day, hour, minute, 0);
+		}
+
         public static DateTime PraseDateTime(string value)
         {
 			//Todo: needs clean up. Prone to format change crashes

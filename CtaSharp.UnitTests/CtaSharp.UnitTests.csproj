@@ -44,6 +44,7 @@
     <Compile Include="ArrivalsEndpointXML_Tests.cs" />
     <Compile Include="RouteExtensionMethods_Tests.cs" />
     <Compile Include="Tools\TestHelper.cs" />
+    <Compile Include="XMLToVehicleConverter_Tests.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -53,7 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CtaSharp.BusTracker\CtaSharp.BusTracker.csproj">
-      <Project>{4c0890d5-8ae3-4e28-a572-7d344154f7fc}</Project>
+      <Project>{4C0890D5-8AE3-4E28-A572-7D344154F7FC}</Project>
       <Name>CtaSharp.BusTracker</Name>
     </ProjectReference>
     <ProjectReference Include="..\CtaSharp.Shared\CtaSharp.Shared.csproj">
@@ -61,7 +62,7 @@
       <Name>CtaSharp.Shared</Name>
     </ProjectReference>
     <ProjectReference Include="..\CtaSharp.TrainTracker\CtaSharp.TrainTracker.csproj">
-      <Project>{4c6db954-8a6c-465d-8eb4-bd999c252088}</Project>
+      <Project>{4C6DB954-8A6C-465D-8EB4-BD999C252088}</Project>
       <Name>CtaSharp.TrainTracker</Name>
     </ProjectReference>
   </ItemGroup>
