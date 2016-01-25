@@ -34,7 +34,7 @@ namespace CtaSharp.UnitTests
 		public void BasicConversion()
 		{
 			XMLToVehicleConverter converter = new XMLToVehicleConverter ();
-			var conversionResult = converter.Convert (TestHelper.BusVehicleString, " ");
+			var conversionResult = converter.Convert (TestHelper.BusVehicleString, "bustime-response");
 
 			var firstElement = conversionResult.First ();
 

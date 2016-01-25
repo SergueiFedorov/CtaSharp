@@ -42,7 +42,7 @@ namespace CtaSharp.BusTracker.EndPoint.Converters
 				vehicle.ParentDistance = 	XMLParsingTools.ParseInt(XMLParsingTools.ExtractValue (vehicleXML, "pdist"));
 				vehicle.Route = 			XMLParsingTools.ParseInt(XMLParsingTools.ExtractValue (vehicleXML, "rt"));
 				vehicle.Destination = 		XMLParsingTools.ExtractValue (vehicleXML, "des");
-				vehicle.Delayed = 			XMLParsingTools.ParseBool(XMLParsingTools.ExtractValue (vehicleXML, "dly"));
+				//vehicle.Delayed = 			XMLParsingTools.ParseBool(XMLParsingTools.ExtractValue (vehicleXML, "dly"));
 			
 				returnList.Add (vehicle);
 			}
