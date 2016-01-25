@@ -25,8 +25,8 @@ namespace CtaSharp.BusTracker.EndPoint.Converters
 			}
 
 			var parsedXML = XDocument.Parse(XML);
-			//var parentNode = parsedXML.Descendants().Where(x => x.Name == parentNodeName);
-			var vehicles = parsedXML.Descendants().SelectMany(x => x.Descendants().Where(y => y.Name == "vehicle"));
+			var parentNode = parsedXML.Descendants().Where(x => x.Name == parentNodeName);
+			var vehicles = parentNode.SelectMany(x => x.Descendants().Where(y => y.Name == "vehicle"));
 
 			var returnList = new List<Vehicle> ();
 
@@ -42,7 +42,6 @@ namespace CtaSharp.BusTracker.EndPoint.Converters
 				vehicle.ParentDistance = 	XMLParsingTools.ParseInt(XMLParsingTools.ExtractValue (vehicleXML, "pdist"));
 				vehicle.Route = 			XMLParsingTools.ParseInt(XMLParsingTools.ExtractValue (vehicleXML, "rt"));
 				vehicle.Destination = 		XMLParsingTools.ExtractValue (vehicleXML, "des");
-				//vehicle.Delayed = 			XMLParsingTools.ParseBool(XMLParsingTools.ExtractValue (vehicleXML, "dly"));
 			
 				returnList.Add (vehicle);
 			}
