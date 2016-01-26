@@ -96,6 +96,15 @@ namespace CtaSharp.UnitTests
     </vehicle>
 </bustime-response>";
 
+        public const string BusRouteString =
+@"<bustime-response>
+    <route>
+        <rt>1</rt>
+        <rtnm>Bronzeville/Union Station</rtnm>
+        <rtclr>#336633</rtclr>
+    </route>
+</bustime-response>";
+
     }
 }
 

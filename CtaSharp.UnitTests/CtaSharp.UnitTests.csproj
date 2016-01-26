@@ -40,6 +40,7 @@
     <Compile Include="ETAEndpointXML_Tests.cs" />
     <Compile Include="XMLToETAConverter_Tests.cs" />
     <Compile Include="RouteEndPointXML_Tests.cs" />
+    <Compile Include="XmlToRouteConverter_Bus_Tests.cs" />
     <Compile Include="XMLToRouteConverter_Tests.cs" />
     <Compile Include="ArrivalsEndpointXML_Tests.cs" />
     <Compile Include="RouteExtensionMethods_Tests.cs" />
