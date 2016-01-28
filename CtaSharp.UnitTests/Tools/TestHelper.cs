@@ -110,6 +110,12 @@ namespace CtaSharp.UnitTests
     <tm>20160127 21:31:24</tm>
 </bustime-response>";
 
+        public const string BusDirectionString =
+@"<bustime-response>
+    <dir>Eastbound</dir>
+    <dir>Westbound</dir>
+</bustime-response>";
+
     }
 }
 
