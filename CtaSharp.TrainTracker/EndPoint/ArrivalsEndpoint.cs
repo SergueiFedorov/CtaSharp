@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
-using System.Collections;
 using System.Collections.Generic;
 using CtaSharp.Models;
-using CtaSharp.Parameters;
 using CtaSharp.EndPoint.DataSource;
 using CtaSharp.EndPoint.Converters;
-using CtaSharp.Tools.XML;
 using CtaSharp.Shared.Interfaces;
 
 namespace CtaSharp.EndPoint

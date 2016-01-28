@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CtaSharp.Enums
+﻿namespace CtaSharp.Enums
 {
 	public enum EnumTrainRoute 
 	{

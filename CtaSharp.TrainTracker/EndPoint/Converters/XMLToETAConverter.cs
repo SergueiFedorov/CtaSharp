@@ -6,51 +6,41 @@ using System.Runtime.CompilerServices;
 using System.Xml.Linq;
 using System;
 using CtaSharp.Shared.Interfaces;
+using CtaSharp.Shared;
 
 [assembly: InternalsVisibleTo("CtaSharp.UnitTests")]
 
 namespace CtaSharp.EndPoint.Converters
 {
-    internal class XMLToETAConverter : IConverter<ETA>
+    internal class XMLToETAConverter : XMLConverterBase<ETA>, IConverter<ETA>
     {
-        public IEnumerable<ETA> Convert(string XML, string parentNodeName)
+        public XMLToETAConverter()
+            : base("eta")
         {
-			if (string.IsNullOrEmpty (XML) || string.IsNullOrEmpty (parentNodeName)) 
-			{
-				throw new ArgumentNullException ();
-			}
 
-            var parsedXML = XDocument.Parse(XML);
-            var parentNode = parsedXML.Descendants().Where(x => x.Name == parentNodeName);
-            var etas = parentNode.SelectMany(x => x.Descendants().Where(y => y.Name == "eta"));
+        }
 
-
-            List<ETA> parsedETA = new List<ETA>();
-            foreach (XElement eta in etas)
+        protected override ETA ConvertItem(XElement XMLElement)
+        {
+            return new ETA()
             {
-                parsedETA.Add(new ETA()
-                {
-                    PredicatedArrival =      	XMLParsingTools.PraseDateTime(XMLParsingTools.ExtractValue(eta, "arrT")),
-                    DestinationName =    		XMLParsingTools.ExtractValue(eta, "destNm"),
-                    DestinationStationID =    	XMLParsingTools.ParseUShort(XMLParsingTools.ExtractValue(eta, "destSt")),
-                    Flags =     				XMLParsingTools.ExtractValue(eta, "flags"),
-                    IsApproaching =     		XMLParsingTools.ParseBool(XMLParsingTools.ExtractValue(eta, "isApp")),
-                    IsDelayed =     			XMLParsingTools.ParseBool(XMLParsingTools.ExtractValue(eta, "isDly")),
-                    IsFaultDetected =     		XMLParsingTools.ParseBool(XMLParsingTools.ExtractValue(eta, "isFlt")),
-                    IsLivePrediction =     		XMLParsingTools.ParseBool(XMLParsingTools.ExtractValue(eta, "isSch")),
-            		PredicationGeneratedTime = 	XMLParsingTools.PraseDateTime(XMLParsingTools.ExtractValue(eta, "prdt")),
-                    RunNumber =        			XMLParsingTools.ParseInt(XMLParsingTools.ExtractValue(eta, "rn")),
-                    RouteName =        			XMLParsingTools.ExtractValue(eta, "rt"),
-                    StationID =     			XMLParsingTools.ParseUShort(XMLParsingTools.ExtractValue(eta, "staId")),
-                    StationName =     			XMLParsingTools.ExtractValue(eta, "staNm"),
-                	StationDescription =     	XMLParsingTools.ExtractValue(eta, "stpDe"),
-                    StopID =     				XMLParsingTools.ParseInt(XMLParsingTools.ExtractValue(eta, "stpId")),
-                    RouteDirectionCode =      	XMLParsingTools.ParseInt(XMLParsingTools.ExtractValue(eta, "trDr")),
-                });
-
-            }
-
-            return parsedETA;
+                PredicatedArrival = XMLParsingTools.PraseDateTime(XMLParsingTools.ExtractValue(XMLElement, "arrT")),
+                DestinationName = XMLParsingTools.ExtractValue(XMLElement, "destNm"),
+                DestinationStationID = XMLParsingTools.ParseUShort(XMLParsingTools.ExtractValue(XMLElement, "destSt")),
+                Flags = XMLParsingTools.ExtractValue(XMLElement, "flags"),
+                IsApproaching = XMLParsingTools.ParseBool(XMLParsingTools.ExtractValue(XMLElement, "isApp")),
+                IsDelayed = XMLParsingTools.ParseBool(XMLParsingTools.ExtractValue(XMLElement, "isDly")),
+                IsFaultDetected = XMLParsingTools.ParseBool(XMLParsingTools.ExtractValue(XMLElement, "isFlt")),
+                IsLivePrediction = XMLParsingTools.ParseBool(XMLParsingTools.ExtractValue(XMLElement, "isSch")),
+                PredicationGeneratedTime = XMLParsingTools.PraseDateTime(XMLParsingTools.ExtractValue(XMLElement, "prdt")),
+                RunNumber = XMLParsingTools.ParseInt(XMLParsingTools.ExtractValue(XMLElement, "rn")),
+                RouteName = XMLParsingTools.ExtractValue(XMLElement, "rt"),
+                StationID = XMLParsingTools.ParseUShort(XMLParsingTools.ExtractValue(XMLElement, "staId")),
+                StationName = XMLParsingTools.ExtractValue(XMLElement, "staNm"),
+                StationDescription = XMLParsingTools.ExtractValue(XMLElement, "stpDe"),
+                StopID = XMLParsingTools.ParseInt(XMLParsingTools.ExtractValue(XMLElement, "stpId")),
+                RouteDirectionCode = XMLParsingTools.ParseInt(XMLParsingTools.ExtractValue(XMLElement, "trDr")),
+            };
         }
     }
 }

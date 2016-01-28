@@ -40,6 +40,7 @@
     <Compile Include="Interfaces\IEndpoint.cs" />
     <Compile Include="Tools\XML\XMLParsingExtensions.cs" />
     <Compile Include="Tools\XML\XMLParsingTools.cs" />
+    <Compile Include="XMLConverterBase.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup />

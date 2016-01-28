@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
-using CtaSharp;
 using CtaSharp.Parameters;
-using CtaSharp.EndPoint;
 using CtaSharp.Enums;
 using System;
 using CtaSharp.Shared.Interfaces;

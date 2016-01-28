@@ -1,6 +1,5 @@
 ﻿using CtaSharp.Shared;
 using CtaSharp.Shared.Interfaces;
-using System;
 
 namespace CtaSharp.BusTracker.DataSource
 {

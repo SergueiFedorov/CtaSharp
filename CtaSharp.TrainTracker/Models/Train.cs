@@ -1,7 +1,4 @@
-﻿using CtaSharp.EndPoint.Converters;
-using CtaSharp.EndPoint.DataSource;
-using CtaSharp.Parameters;
-using System;
+﻿using System;
 
 namespace CtaSharp.Models
 {
