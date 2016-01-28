@@ -105,6 +105,11 @@ namespace CtaSharp.UnitTests
     </route>
 </bustime-response>";
 
+        public const string TimeString =
+@"<bustime-response>
+    <tm>20160127 21:31:24</tm>
+</bustime-response>";
+
     }
 }
 

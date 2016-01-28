@@ -45,6 +45,7 @@
     <Compile Include="ArrivalsEndpointXML_Tests.cs" />
     <Compile Include="RouteExtensionMethods_Tests.cs" />
     <Compile Include="Tools\TestHelper.cs" />
+    <Compile Include="XMLToTimeConverter_Tests.cs" />
     <Compile Include="XMLToVehicleConverter_Tests.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

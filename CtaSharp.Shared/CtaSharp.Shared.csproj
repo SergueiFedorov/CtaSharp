@@ -38,6 +38,7 @@
     <Compile Include="Interfaces\IConverter.cs" />
     <Compile Include="Interfaces\IDataSource.cs" />
     <Compile Include="Interfaces\IEndpoint.cs" />
+    <Compile Include="Tools\XML\XMLParsingExtensions.cs" />
     <Compile Include="Tools\XML\XMLParsingTools.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

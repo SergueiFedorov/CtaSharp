@@ -34,7 +34,12 @@ namespace CtaSharp.Tools.XML
             return parent.Descendants().Single(x => x.Name == name).Value;
         }
 
-		public static string ExtractAttribute(XElement element, string attributeName)
+        public static string ExtractValue(XElement parent)
+        {
+            return parent.Value;
+        }
+
+        public static string ExtractAttribute(XElement element, string attributeName)
 		{
 			return element.Attributes().Single(attrib => attrib.Name == attributeName).Value;
 		}
