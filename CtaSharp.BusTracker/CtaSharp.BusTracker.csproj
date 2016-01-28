@@ -47,10 +47,12 @@
   <ItemGroup>
     <Compile Include="EndPoint\Converters\XMLToDirectionConverter.cs" />
     <Compile Include="EndPoint\Converters\XMLToRouteConverter.cs" />
+    <Compile Include="EndPoint\Converters\XMLToStopsConverter.cs" />
     <Compile Include="EndPoint\Converters\XMLToTimeConverter.cs" />
     <Compile Include="EndPoint\Converters\XMLToVehicleConverter.cs" />
     <Compile Include="EndPoint\DataSource\DirectionDataSource.cs" />
     <Compile Include="EndPoint\DataSource\RoutesDataSource.cs" />
+    <Compile Include="Models\Stop.cs" />
     <Compile Include="EndPoint\DataSource\TimeDataSource.cs" />
     <Compile Include="EndPoint\DataSource\VehicleDataSource.cs" />
     <Compile Include="EndPoint\VehicleEndpoint.cs" />
