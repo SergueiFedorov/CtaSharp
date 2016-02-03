@@ -7,7 +7,8 @@ namespace CtaSharp.Shared
 {
     public abstract class XMLConverterBase<T>
     {
-        string _elementName { get; set; }
+        protected string _elementName { get; set; }
+
         protected XMLConverterBase(string baseElementName)
         {
             this._elementName = baseElementName;
@@ -15,7 +16,7 @@ namespace CtaSharp.Shared
 
         protected abstract T ConvertItem(XElement XMLElement);
 
-        public IEnumerable<T> Convert(string XML, string parentNodeName)
+        public virtual IEnumerable<T> Convert(string XML, string parentNodeName)
         {
             if (string.IsNullOrEmpty(XML) || string.IsNullOrEmpty(parentNodeName))
             {

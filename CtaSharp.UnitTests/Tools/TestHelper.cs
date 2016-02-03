@@ -116,6 +116,23 @@ namespace CtaSharp.UnitTests
     <dir>Westbound</dir>
 </bustime-response>";
 
+        public const string PatternString =
+@"<bustime-response>
+    <ptr>
+    <pid>957</pid>
+    <ln>0.0</ln>
+    <rtdir>Eastbound</rtdir>
+    <pt>
+        <seq>1</seq>
+        <lat>41.880348006551</lat>
+        <lon>-87.774017572665</lon>
+        <typ>S</typ>
+        <stpid>386</stpid>
+        <stpnm>Madison & Austin Terminal</stpnm>
+        <pdist>0.0</pdist>
+    </pt>
+</bustime-response>";
+
     }
 }
 

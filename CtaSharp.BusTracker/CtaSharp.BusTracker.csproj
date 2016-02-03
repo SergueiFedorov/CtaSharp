@@ -46,11 +46,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EndPoint\Converters\XMLToDirectionConverter.cs" />
+    <Compile Include="EndPoint\Converters\XMLToPatternConverter.cs" />
     <Compile Include="EndPoint\Converters\XMLToRouteConverter.cs" />
     <Compile Include="EndPoint\Converters\XMLToStopsConverter.cs" />
     <Compile Include="EndPoint\Converters\XMLToTimeConverter.cs" />
     <Compile Include="EndPoint\Converters\XMLToVehicleConverter.cs" />
     <Compile Include="EndPoint\DataSource\DirectionDataSource.cs" />
+    <Compile Include="EndPoint\DataSource\PatternsDataSource.cs" />
+    <Compile Include="Models\GeoPoint.cs" />
+    <Compile Include="Models\Pattern.cs" />
     <Compile Include="EndPoint\DataSource\RoutesDataSource.cs" />
     <Compile Include="Models\Stop.cs" />
     <Compile Include="EndPoint\DataSource\TimeDataSource.cs" />
